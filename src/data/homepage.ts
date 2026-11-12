@@ -54,7 +54,7 @@ export const coreCompetencies = [
   },
   {
     number: "04.",
-    title: "Dispute Avoidance & Resolution",
+    title: "Dispute Resolution",
     description:
       "We provide litigation strategy, tax dispute representation, and arbitration support for complex corporate disputes.",
   },
@@ -302,7 +302,7 @@ export const homepageContent = {
   },
   managingPartner: {
     name: "Dr. Qaisar H. Metawea",
-    role: "Managing Partner",
+    role: "Founder and Managing Partner",
     bio: "We are a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.",
     extendedBio:
       "We deliver partner-led, commercially driven legal solutions designed to provide regulatory certainty, mitigate transactional risk, and accelerate speed to market.",

@@ -64,7 +64,7 @@ export const aboutData = {
     label: "Firm Leadership",
     name: "Dr. Qaisar H. Metawea",
     role: "Founder and Managing Partner",
-    bio: "Advising multinational boards on high-stakes Saudi regulatory and corporate mandates.",
-    image: "/assets/team/Dr-Q.webp",
+    bio: "Dr. Qaisar H. Metawea is the Founder and Managing Partner of the Firm, with extensive experience across corporate and commercial law, litigation and dispute resolution, mergers and acquisitions, aviation, entertainment, intellectual property, information technology, data protection, taxation, and employment. His practice encompasses complex transactions, strategic legal advisory, regulatory matters, and the representation of clients in commercial and other disputes before the competent courts and authorities in Saudi Arabia. He advises local and international clients across a broad range of industries, addressing both their day-to-day legal requirements and significant contentious and transactional matters.",
+    image: "/assets/team/Dr.QaisarH.Metawea.webp",
   },
 };

@@ -292,21 +292,38 @@ export default function AboutPage() {
               <motion.p variants={reveal} className="mt-5 text-sm font-medium uppercase text-brand">
                 {leadership.role}
               </motion.p>
-              <motion.p variants={reveal} className="mt-8 max-w-xl text-base leading-8 text-black/58">
-                {leadership.bio}
-              </motion.p>
+              <div className="mt-8 space-y-4 max-w-xl text-base leading-7 text-black/60">
+                {Array.isArray(leadership.bio) ? (
+                  leadership.bio.map((paragraph, index) => (
+                    <motion.p key={index} variants={reveal}>
+                      {paragraph}
+                    </motion.p>
+                  ))
+                ) : (
+                  <motion.p variants={reveal}>
+                    {leadership.bio}
+                  </motion.p>
+                )}
+              </div>
             </div>
 
-            <motion.div variants={reveal} className="mt-12">
-              <Link
-                href="/team"
-                className="group inline-flex min-h-12 items-center gap-4 border border-brand bg-brand px-6 text-sm font-medium uppercase text-white transition-colors hover:bg-white hover:text-brand"
-              >
-                Meet The Team
-                <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
+              <motion.div variants={reveal} className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/team/dr-qaisar-hamed-metawea"
+                  className="group inline-flex min-h-12 items-center gap-4 border border-brand bg-brand px-6 text-sm font-medium uppercase text-white transition-colors hover:bg-white hover:text-brand"
+                >
+                  View Full Profile
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href="/team"
+                  className="group inline-flex min-h-12 items-center gap-4 border border-brand/20 bg-transparent px-6 text-sm font-medium uppercase text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white"
+                >
+                  Meet The Team
+                  <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
         </div>
       </section>
 

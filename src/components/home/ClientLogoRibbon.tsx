@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { clientLogos } from "@/data/businessAssets";
-import { revealItem, ScrollTextReveal, SectionLabel, SectionReveal } from "./shared";
+import { revealItem, ScrollTextReveal, SectionReveal } from "./shared";
 
 const ribbonLogos = [...clientLogos, ...clientLogos];
 
@@ -41,15 +41,17 @@ export default function ClientLogoRibbon() {
           {ribbonLogos.map((logo, index) => (
             <div
               key={`${logo.src}-${index}`}
-              className="flex h-28 w-48 shrink-0 items-center justify-center bg-white px-7"
+              className="flex h-28 w-52 shrink-0 items-center justify-center bg-white px-6"
             >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={170}
-                height={82}
-                className="max-h-16 w-auto max-w-full object-contain"
-              />
+              <div className="relative flex h-14 w-40 items-center justify-center">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  fill
+                  sizes="160px"
+                  className="object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>

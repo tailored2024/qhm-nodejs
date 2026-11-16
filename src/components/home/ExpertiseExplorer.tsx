@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  ArrowRight,
   Building2,
   Globe,
   Gavel,
@@ -212,14 +211,6 @@ export default function ExpertiseExplorer() {
                       >
                         {area.title}
                       </h3>
-                      <ArrowRight
-                        size={16}
-                        className={`hidden lg:block ${
-                          isActive
-                            ? "mt-6 text-white/70"
-                            : "mt-6 -translate-x-2 text-brand transition-all group-hover:translate-x-0 group-hover:text-white/70"
-                        }`}
-                      />
                     </div>
                   </div>
 

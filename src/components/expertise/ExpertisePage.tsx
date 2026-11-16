@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Building2,
+  ChevronDown,
   Gavel,
   Globe,
   Landmark,
@@ -215,7 +216,7 @@ function ScrollTextReveal({ children }: { children: string }) {
 }
 
 export default function ExpertisePage() {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -271,7 +272,7 @@ export default function ExpertisePage() {
           <motion.div variants={container} className="grid gap-px bg-brand md:grid-cols-2 xl:grid-cols-3">
             {expertiseItems.map((area, index) => {
               const Icon = area.icon;
-              const isSelected = activeCard === index;
+              const isExpanded = expandedIndex === index;
 
               return (
                 <motion.article
@@ -279,73 +280,81 @@ export default function ExpertisePage() {
                   variants={blurItem}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3, ease }}
-                  onClick={() => setActiveCard(isSelected ? null : index)}
-                  className={`group flex min-h-[340px] cursor-pointer flex-col p-6 text-left transition-colors sm:p-7 md:cursor-default ${
-                    isSelected
-                      ? "bg-brand text-white"
-                      : "bg-white text-brand hover:bg-brand hover:text-white"
-                  }`}
+                  onClick={() =>
+                    setExpandedIndex((prev) => (prev === index ? null : index))
+                  }
+                  className="group flex min-h-0 md:min-h-[340px] cursor-pointer md:cursor-default flex-col bg-white p-6 text-left transition-colors md:hover:bg-brand md:hover:text-white sm:p-7"
                 >
                   <div className="flex items-start justify-between gap-5">
-                    <div
-                      className={`flex h-12 w-12 items-center justify-center border transition-colors ${
-                        isSelected
-                          ? "border-white/20 text-white"
-                          : "border-brand text-brand group-hover:border-white/20 group-hover:text-white"
-                      }`}
-                    >
+                    <div className="flex h-12 w-12 items-center justify-center border border-brand text-brand transition-colors md:group-hover:border-white/20 md:group-hover:text-white">
                       <Icon size={21} strokeWidth={1.5} />
                     </div>
-                    <span
-                      className={`font-mono text-xs transition-colors ${
-                        isSelected
-                          ? "text-white/42"
-                          : "text-brand group-hover:text-white/42"
-                      }`}
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-brand transition-colors md:group-hover:text-white/42">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <ChevronDown
+                        size={16}
+                        className={`text-brand transition-transform duration-300 md:hidden ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
                   </div>
 
-                  <div className="mt-8 sm:mt-12">
-                    <h3
-                      className={`text-2xl sm:text-3xl font-light leading-tight transition-colors ${
-                        isSelected
-                          ? "text-white"
-                          : "text-brand group-hover:text-white"
-                      }`}
-                    >
+                  <div className="mt-5 sm:mt-8 md:mt-12">
+                    <h3 className="text-2xl font-light leading-tight text-brand transition-colors sm:text-3xl md:group-hover:text-white">
                       {area.title}
                     </h3>
+                  </div>
+
+                  {/* Mobile View: Collapsed by default ("just the title in short"), expands to show description and bullet points */}
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out md:hidden ${
+                      isExpanded
+                        ? "grid-rows-[1fr] opacity-100 mt-4"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="border-t border-brand/15 pt-4">
+                        {area.description && (
+                          <p className="text-sm leading-6 text-black/65">
+                            {area.description}
+                          </p>
+                        )}
+                        {area.points && area.points.length > 0 && (
+                          <ul className="mt-3.5 space-y-2.5">
+                            {area.points.map((point) => (
+                              <li
+                                key={point}
+                                className="flex items-start gap-2.5 text-xs sm:text-sm leading-5 text-black/75"
+                              >
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-brand" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Desktop View: Always Visible in the multi-column grid */}
+                  <div className="hidden md:block">
                     {area.description && (
-                      <p
-                        className={`mt-4 sm:mt-5 text-sm leading-6 sm:leading-7 transition-colors ${
-                          isSelected
-                            ? "text-white/70"
-                            : "text-black/52 group-hover:text-white/62"
-                        }`}
-                      >
+                      <p className="mt-5 text-sm leading-7 text-black/52 transition-colors group-hover:text-white/62">
                         {area.description}
                       </p>
                     )}
                     {area.points && area.points.length > 0 && (
-                      <ul className="mt-5 sm:mt-6 space-y-2.5 sm:space-y-3">
+                      <ul className="mt-6 space-y-3">
                         {area.points.map((point) => (
                           <li
                             key={point}
-                            className={`flex items-start gap-3 text-sm leading-6 transition-colors ${
-                              isSelected
-                                ? "text-white/85"
-                                : "text-black/58 group-hover:text-white/68"
-                            }`}
+                            className="flex items-start gap-3 text-sm leading-6 text-black/58 transition-colors group-hover:text-white/68"
                           >
-                            <span
-                              className={`mt-2 h-1.5 w-1.5 shrink-0 transition-colors ${
-                                isSelected
-                                  ? "bg-white"
-                                  : "bg-brand group-hover:bg-white/70"
-                              }`}
-                            />
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-brand transition-colors group-hover:bg-white/70" />
                             <span>{point}</span>
                           </li>
                         ))}

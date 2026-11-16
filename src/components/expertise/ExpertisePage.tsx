@@ -20,6 +20,7 @@ type ExpertiseItem = {
   title: string;
   icon: React.ElementType;
   description: string;
+  points?: string[];
 };
 
 const expertiseItems: ExpertiseItem[] = [
@@ -63,7 +64,14 @@ const expertiseItems: ExpertiseItem[] = [
     title: "Tax, Zakat & Transfer Pricing",
     icon: Landmark,
     description:
-      "ZATCA advisory, objection procedures, committee representation, settlement negotiations, and transfer pricing advisory.",
+      "We are among the few Saudi firms with institutional experience in committee proceedings since inception.",
+    points: [
+      "ZATCA advisory",
+      "Objection procedures",
+      "Representation before Committees for Resolution of Tax Violations and Disputes",
+      "Settlement negotiations",
+      "Transfer pricing advisory",
+    ],
   },
   {
     title: "Sector-Specific Advisory",
@@ -259,7 +267,7 @@ export default function ExpertisePage() {
                     </h3>
                   </div>
 
-                  {/* Mobile View: Collapsed by default ("just the title in short"), expands to show description */}
+                  {/* Mobile View: Collapsed by default ("just the title in short"), expands to show description and points */}
                   <div
                     className={`grid transition-all duration-300 ease-in-out md:hidden ${
                       isExpanded
@@ -274,6 +282,19 @@ export default function ExpertisePage() {
                             {area.description}
                           </p>
                         )}
+                        {area.points && area.points.length > 0 && (
+                          <ul className="mt-3.5 space-y-2">
+                            {area.points.map((point) => (
+                              <li
+                                key={point}
+                                className="flex items-start gap-2.5 text-xs sm:text-sm leading-5 text-black/75"
+                              >
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-brand" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -284,6 +305,19 @@ export default function ExpertisePage() {
                       <p className="mt-5 text-sm leading-7 text-black/52 transition-colors group-hover:text-white/62">
                         {area.description}
                       </p>
+                    )}
+                    {area.points && area.points.length > 0 && (
+                      <ul className="mt-5 space-y-2.5">
+                        {area.points.map((point) => (
+                          <li
+                            key={point}
+                            className="flex items-start gap-3 text-sm leading-6 text-black/58 transition-colors group-hover:text-white/68"
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-brand transition-colors group-hover:bg-white/70" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
                     )}
                   </div>
                 </motion.article>

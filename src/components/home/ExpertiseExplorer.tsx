@@ -125,6 +125,19 @@ export default function ExpertiseExplorer() {
                   <p className="max-w-xl text-base leading-7 text-white/80">
                     {activeArea.description}
                   </p>
+                  {activeArea.points && activeArea.points.length > 0 && (
+                    <ul className="mt-5 space-y-2">
+                      {activeArea.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-start gap-2.5 text-sm text-white/85"
+                        >
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                   <div className="mt-8">
                     <PremiumButton href={activeArea.href} inverse>
                       Explore Practice
@@ -237,6 +250,19 @@ export default function ExpertiseExplorer() {
                       <p className="text-sm leading-relaxed text-white/80">
                         {area.description}
                       </p>
+                      {area.points && area.points.length > 0 && (
+                        <ul className="mt-3 space-y-2">
+                          {area.points.map((point) => (
+                            <li
+                              key={point}
+                              className="flex items-start gap-2 text-xs sm:text-sm text-white/90"
+                            >
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                       <div className="mt-5">
                         <PremiumButton href={area.href} inverse>
                           Explore Practice

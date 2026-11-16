@@ -76,11 +76,18 @@ export const practiceAreas = [
     image: "/assets/PracticeAreasSection/joint-ventures-fdi-qhm.webp",
   },
   {
-    title: "Regulatory Advisory",
+    title: "Tax, Zakat & Transfer Pricing",
     description:
-      "Advising and representing clients before key Saudi authorities, ensuring regulatory certainty within evolving legal frameworks.",
+      "We are among the few Saudi firms with institutional experience in committee proceedings since inception.",
+    points: [
+      "ZATCA advisory",
+      "Objection procedures",
+      "Representation before Committees for Resolution of Tax Violations and Disputes",
+      "Settlement negotiations",
+      "Transfer pricing advisory",
+    ],
     href: "/expertise",
-    image: "/assets/PracticeAreasSection/regulatory-advisory-qhm.webp",
+    image: "/assets/PracticeAreasSection/tax-zakat-qhm.webp",
   },
   {
     title: "Dispute Resolution & Litigation",
@@ -104,16 +111,23 @@ export const practiceAreas = [
     image: "/assets/PracticeAreasSection/ip-technology-qhm.webp",
   },
   {
-    title: "Tax, Zakat & Transfer Pricing",
+    title: "Government & Regulatory Engagement",
     description:
-      "ZATCA advisory, objection procedures, committee representation, settlement negotiations, and transfer pricing advisory.",
+      "We advise and represent clients before key Saudi authorities, including ZATCA and dispute resolution committees, leveraging deep institutional knowledge.",
     href: "/expertise",
-    image: "/assets/PracticeAreasSection/tax-zakat-qhm.webp",
+    image: "/assets/PracticeAreasSection/regulatory-advisory-qhm.webp",
   },
   {
     title: "Sector-Specific Advisory",
     description:
-      "Strategic counsel across Energy & Infrastructure, Healthcare & Pharmaceuticals, Aviation & Maritime, Real Estate, and IT & Telecom.",
+      "Energy & Infrastructure, Healthcare & Pharmaceuticals, Aviation & Maritime, Real Estate & Development, and IT & Telecom.",
+    points: [
+      "Energy & Infrastructure",
+      "Healthcare & Pharmaceuticals",
+      "Aviation & Maritime",
+      "Real Estate & Development",
+      "IT & Telecom",
+    ],
     href: "/expertise",
     image: "/assets/PracticeAreasSection/sector-advisory-qhm.webp",
   },

@@ -2,11 +2,10 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Building2,
-  ChevronDown,
   Gavel,
   Globe,
   Landmark,
@@ -216,7 +215,7 @@ function ScrollTextReveal({ children }: { children: string }) {
 }
 
 export default function ExpertisePage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -272,7 +271,7 @@ export default function ExpertisePage() {
           <motion.div variants={container} className="grid gap-px bg-brand md:grid-cols-2 xl:grid-cols-3">
             {expertiseItems.map((area, index) => {
               const Icon = area.icon;
-              const isOpen = openIndex === index;
+              const isSelected = activeCard === index;
 
               return (
                 <motion.article
@@ -280,129 +279,73 @@ export default function ExpertisePage() {
                   variants={blurItem}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3, ease }}
-                  className={`group flex flex-col bg-white p-6 text-left transition-colors sm:p-7 md:min-h-[340px] ${
-                    isOpen
-                      ? "bg-brand text-white md:bg-white md:text-brand"
-                      : "hover:bg-brand hover:text-white"
+                  onClick={() => setActiveCard(isSelected ? null : index)}
+                  className={`group flex min-h-[340px] cursor-pointer flex-col p-6 text-left transition-colors sm:p-7 md:cursor-default ${
+                    isSelected
+                      ? "bg-brand text-white"
+                      : "bg-white text-brand hover:bg-brand hover:text-white"
                   }`}
                 >
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() =>
-                      setOpenIndex((prev) => (prev === index ? null : index))
-                    }
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setOpenIndex((prev) =>
-                          prev === index ? null : index
-                        );
-                      }
-                    }}
-                    className="flex w-full cursor-pointer md:cursor-default items-start justify-between gap-5 select-none"
-                  >
+                  <div className="flex items-start justify-between gap-5">
                     <div
                       className={`flex h-12 w-12 items-center justify-center border transition-colors ${
-                        isOpen
-                          ? "border-white/20 text-white md:border-brand md:text-brand md:group-hover:border-white/20 md:group-hover:text-white"
+                        isSelected
+                          ? "border-white/20 text-white"
                           : "border-brand text-brand group-hover:border-white/20 group-hover:text-white"
                       }`}
                     >
                       <Icon size={21} strokeWidth={1.5} />
                     </div>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className={`font-mono text-xs transition-colors ${
-                          isOpen
-                            ? "text-white/60 md:text-brand md:group-hover:text-white/42"
-                            : "text-brand group-hover:text-white/42"
-                        }`}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <ChevronDown
-                        size={18}
-                        className={`transition-transform duration-300 md:hidden ${
-                          isOpen
-                            ? "rotate-180 text-white"
-                            : "text-brand group-hover:text-white"
-                        }`}
-                      />
-                    </div>
+                    <span
+                      className={`font-mono text-xs transition-colors ${
+                        isSelected
+                          ? "text-white/42"
+                          : "text-brand group-hover:text-white/42"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
 
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() =>
-                      setOpenIndex((prev) => (prev === index ? null : index))
-                    }
-                    className="mt-6 cursor-pointer md:mt-12 md:cursor-default"
-                  >
+                  <div className="mt-8 sm:mt-12">
                     <h3
                       className={`text-2xl sm:text-3xl font-light leading-tight transition-colors ${
-                        isOpen
-                          ? "text-white md:text-brand md:group-hover:text-white"
+                        isSelected
+                          ? "text-white"
                           : "text-brand group-hover:text-white"
                       }`}
                     >
                       {area.title}
                     </h3>
-                  </div>
-
-                  {/* Mobile Animated Accordion */}
-                  <div className="md:hidden">
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          key="mobile-content"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.35, ease }}
-                          className="overflow-hidden"
-                        >
-                          <div className="mt-4 border-t border-white/15 pt-4">
-                            {area.description && (
-                              <p className="text-sm leading-6 text-white/80">
-                                {area.description}
-                              </p>
-                            )}
-                            {area.points && (
-                              <ul className="mt-4 space-y-2.5">
-                                {area.points.map((point) => (
-                                  <li
-                                    key={point}
-                                    className="flex items-start gap-2.5 text-xs sm:text-sm leading-5 text-white/90"
-                                  >
-                                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
-                                    <span>{point}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Desktop View: Always Visible in Grid */}
-                  <div className="hidden md:block">
                     {area.description && (
-                      <p className="mt-5 text-sm leading-7 text-black/52 transition-colors group-hover:text-white/62">
+                      <p
+                        className={`mt-4 sm:mt-5 text-sm leading-6 sm:leading-7 transition-colors ${
+                          isSelected
+                            ? "text-white/70"
+                            : "text-black/52 group-hover:text-white/62"
+                        }`}
+                      >
                         {area.description}
                       </p>
                     )}
-                    {area.points && (
-                      <ul className="mt-6 space-y-3">
+                    {area.points && area.points.length > 0 && (
+                      <ul className="mt-5 sm:mt-6 space-y-2.5 sm:space-y-3">
                         {area.points.map((point) => (
                           <li
                             key={point}
-                            className="flex gap-3 text-sm leading-6 text-black/58 transition-colors group-hover:text-white/68"
+                            className={`flex items-start gap-3 text-sm leading-6 transition-colors ${
+                              isSelected
+                                ? "text-white/85"
+                                : "text-black/58 group-hover:text-white/68"
+                            }`}
                           >
-                            <span className="mt-2 h-1 w-1 shrink-0 bg-brand transition-colors group-hover:bg-white/70" />
+                            <span
+                              className={`mt-2 h-1.5 w-1.5 shrink-0 transition-colors ${
+                                isSelected
+                                  ? "bg-white"
+                                  : "bg-brand group-hover:bg-white/70"
+                              }`}
+                            />
                             <span>{point}</span>
                           </li>
                         ))}

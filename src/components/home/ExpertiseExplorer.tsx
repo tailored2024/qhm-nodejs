@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Building2,
-  ChevronDown,
   Globe,
   Gavel,
   Lightbulb,
@@ -71,10 +70,10 @@ export default function ExpertiseExplorer() {
         </div>
 
         <div className="grid gap-px bg-brand lg:grid-cols-[0.95fr_1.05fr]">
-          {/* Desktop Preview Panel (hidden on mobile, cards expand inline on mobile) */}
+          {/* Main Preview Panel (visible on all screens, updates when any practice card is selected) */}
           <motion.div
             variants={revealItem}
-            className="relative hidden lg:flex flex-col justify-between overflow-hidden p-8 text-white sm:p-10 lg:min-h-[560px] lg:p-12 bg-brand"
+            className="relative flex flex-col justify-between overflow-hidden p-6 sm:p-10 lg:p-12 min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] bg-brand text-white"
           >
             <AnimatePresence mode="wait">
               {activeArea.image ? (
@@ -110,29 +109,29 @@ export default function ExpertiseExplorer() {
                       {String(safeActiveIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="mt-14 max-w-xl text-5xl font-light leading-[0.98] sm:text-6xl">
+                  <h3 className="mt-8 sm:mt-14 max-w-xl text-3xl sm:text-5xl font-light leading-[0.98] sm:leading-[0.98] lg:text-6xl">
                     {activeArea.title}
                   </h3>
                 </div>
 
-                <div className="mt-12">
-                  <p className="max-w-xl text-base leading-7 text-white/80">
+                <div className="mt-8 sm:mt-12">
+                  <p className="max-w-xl text-sm sm:text-base leading-6 sm:leading-7 text-white/80">
                     {activeArea.description}
                   </p>
                   {activeArea.points && activeArea.points.length > 0 && (
-                    <ul className="mt-6 space-y-2.5">
+                    <ul className="mt-5 sm:mt-6 space-y-2 sm:space-y-2.5">
                       {activeArea.points.map((point) => (
                         <li
                           key={point}
-                          className="flex items-start gap-3 text-sm text-white/85"
+                          className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-white/85"
                         >
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-white" />
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
                           <span>{point}</span>
                         </li>
                       ))}
                     </ul>
                   )}
-                  <div className="mt-8">
+                  <div className="mt-6 sm:mt-8">
                     <PremiumButton href={activeArea.href} inverse>
                       Explore Practice
                     </PremiumButton>
@@ -164,7 +163,7 @@ export default function ExpertiseExplorer() {
                     role="button"
                     tabIndex={0}
                     onClick={() => {
-                      setActiveIndex((prev) => (prev === i ? -1 : i));
+                      setActiveIndex(i);
                     }}
                     onMouseEnter={() => {
                       if (
@@ -177,7 +176,7 @@ export default function ExpertiseExplorer() {
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
-                        setActiveIndex((prev) => (prev === i ? -1 : i));
+                        setActiveIndex(i);
                       }
                     }}
                     className="flex w-full cursor-pointer flex-col justify-between select-none"
@@ -192,28 +191,18 @@ export default function ExpertiseExplorer() {
                             : "text-brand transition-colors group-hover:text-white"
                         }
                       />
-                      <div className="flex items-center gap-3">
-                        <span
-                          className={
-                            isActive
-                              ? "font-mono text-xs text-white/40"
-                              : "font-mono text-xs text-brand transition-colors group-hover:text-white/40"
-                          }
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <ChevronDown
-                          size={16}
-                          className={`transition-transform duration-300 lg:hidden ${
-                            isActive
-                              ? "rotate-180 text-white"
-                              : "text-brand group-hover:text-white"
-                          }`}
-                        />
-                      </div>
+                      <span
+                        className={
+                          isActive
+                            ? "font-mono text-xs text-white/40"
+                            : "font-mono text-xs text-brand transition-colors group-hover:text-white/40"
+                        }
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
 
-                    <div className="mt-8 lg:mt-12">
+                    <div className="mt-6 sm:mt-8 lg:mt-12">
                       <h3
                         className={
                           isActive
@@ -234,43 +223,32 @@ export default function ExpertiseExplorer() {
                     </div>
                   </div>
 
-                  {/* Mobile Accordion Details (inline under card title on mobile) */}
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        key="mobile-details"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.35, ease }}
-                        className="overflow-hidden lg:hidden"
-                      >
-                        <div className="mt-5 border-t border-white/15 pt-5">
-                          <p className="text-sm leading-6 text-white/80">
-                            {area.description}
-                          </p>
-                          {area.points && area.points.length > 0 && (
-                            <ul className="mt-4 space-y-2">
-                              {area.points.map((point) => (
-                                <li
-                                  key={point}
-                                  className="flex items-start gap-2.5 text-xs sm:text-sm text-white/85"
-                                >
-                                  <span className="mt-1.5 h-1 w-1 shrink-0 bg-white" />
-                                  <span>{point}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                          <div className="mt-6">
-                            <PremiumButton href={area.href} inverse>
-                              Explore Practice
-                            </PremiumButton>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* On mobile, when this card is selected, also show its description and points inline */}
+                  {isActive && (
+                    <div className="mt-4 border-t border-white/20 pt-4 lg:hidden">
+                      <p className="text-sm leading-relaxed text-white/80">
+                        {area.description}
+                      </p>
+                      {area.points && area.points.length > 0 && (
+                        <ul className="mt-3.5 space-y-2">
+                          {area.points.map((point) => (
+                            <li
+                              key={point}
+                              className="flex items-start gap-2.5 text-xs sm:text-sm text-white/90"
+                            >
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      <div className="mt-5">
+                        <PremiumButton href={area.href} inverse>
+                          Explore Practice
+                        </PremiumButton>
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               );
             })}

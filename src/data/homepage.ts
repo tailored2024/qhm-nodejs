@@ -54,7 +54,7 @@ export const coreCompetencies = [
   },
   {
     number: "04.",
-    title: "Dispute Resolution",
+    title: "Dispute Avoidance & Resolution",
     description:
       "We provide litigation strategy, tax dispute representation, and arbitration support for complex corporate disputes.",
   },
@@ -65,14 +65,14 @@ export const practiceAreas = [
     title: "Corporate & Commercial",
     description:
       "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
-    href: "/expertise",
+    href: "/expertise/corporate-and-commercial",
     image: "/assets/PracticeAreasSection/corporate-commercial-qhm.webp",
   },
   {
     title: "Foreign Direct Investment (FDI)",
     description:
       "Advising foreign investors on Saudi market entry, licensing, MISA approvals, regional headquarters setup, and restructuring.",
-    href: "/expertise",
+    href: "/expertise/foreign-direct-investment",
     image: "/assets/PracticeAreasSection/joint-ventures-fdi-qhm.webp",
   },
   {
@@ -86,35 +86,35 @@ export const practiceAreas = [
       "Settlement negotiations",
       "Transfer pricing advisory",
     ],
-    href: "/expertise",
+    href: "/expertise/tax-zakat-and-transfer-pricing",
     image: "/assets/PracticeAreasSection/tax-zakat-qhm.webp",
   },
   {
     title: "Dispute Resolution & Litigation",
     description:
       "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
-    href: "/expertise",
+    href: "/expertise/dispute-resolution-and-litigation",
     image: "/assets/PracticeAreasSection/dispute-resolution-qhm.webp",
   },
   {
     title: "Employment & Executive Matters",
     description:
       "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
-    href: "/expertise",
+    href: "/expertise/employment-and-executive-matters",
     image: "/assets/PracticeAreasSection/employment-labor-qhm.webp",
   },
   {
     title: "Intellectual Property & Technology",
     description:
       "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
-    href: "/expertise",
+    href: "/expertise/intellectual-property-and-technology",
     image: "/assets/PracticeAreasSection/ip-technology-qhm.webp",
   },
   {
     title: "Government & Regulatory Engagement",
     description:
       "We advise and represent clients before key Saudi authorities, including ZATCA and dispute resolution committees, leveraging deep institutional knowledge.",
-    href: "/expertise",
+    href: "/expertise/government-and-regulatory-engagement",
     image: "/assets/PracticeAreasSection/regulatory-advisory-qhm.webp",
   },
   {
@@ -128,7 +128,7 @@ export const practiceAreas = [
       "Real Estate & Development",
       "IT & Telecom",
     ],
-    href: "/expertise",
+    href: "/expertise/sector-specific-advisory",
     image: "/assets/PracticeAreasSection/sector-advisory-qhm.webp",
   },
 ];
@@ -168,28 +168,31 @@ export const industryFocus = [
 
 export const representativeMandates = [
   {
-    category: "Market Entry & Licensing",
-    title: "Advised a global European fintech provider on their Saudi market entry.",
+    category: "MARKET ENTRY & FINTECH REGULATORY",
+    title: "Advised a global European fintech provider on its Saudi market entry.",
     description:
-      "Structured corporate governance and ensured full regulatory compliance with Saudi Central Bank (SAMA) frameworks for operational licensing.",
+      "Structured licensing strategy and regulatory engagement with the Saudi Central Bank (SAMA), ensuring full compliance with financial services frameworks and operational readiness in the Kingdom.",
   },
   {
-    category: "Corporate M&A",
-    title: "Acted as lead local counsel for a multinational manufacturing conglomerate.",
+    category: "CORPORATE M&A (FLAGSHIP)",
+    title:
+      "Advised on the acquisition of a Saudi education platform by an international professional services firm.",
     description:
-      "Structured and executed a $150M cross-border joint venture in the Eastern Province, mitigating local regulatory and antitrust exposure.",
+      "Acted as local counsel on a landmark transaction involving sector-specific regulatory approvals, legal due diligence, and transaction structuring within the Kingdom.",
   },
   {
-    category: "Dispute Resolution",
-    title: "Successfully represented a leading regional logistics enterprise.",
+    category: "DISPUTE RESOLUTION (ZATCA – CORE STRENGTH)",
+    title:
+      "Successfully represented a leading regional enterprise in a multi-million Riyal tax dispute.",
     description:
-      "Defended the client in a complex, multi-million Riyal tax dispute before the Zakat, Tax and Customs Authority (ZATCA), securing a favorable resolution.",
+      "Acted before the Zakat, Tax and Customs Authority (ZATCA), managing objections and dispute proceedings and securing a favorable resolution.",
   },
   {
-    category: "Regulatory Advisory",
-    title: "Advised the board of a publicly listed regional healthcare provider.",
+    category: "CORPORATE RESTRUCTURING & GOVERNANCE",
+    title:
+      "Advised a regional group on corporate restructuring under the Saudi Companies Law.",
     description:
-      "Delivered strategic counsel on corporate restructuring and mandatory compliance transition under the new Saudi Companies Law.",
+      "Delivered end-to-end legal support on governance optimisation, restructuring strategy, and regulatory compliance transition.",
   },
 ];
 
@@ -325,7 +328,7 @@ export const homepageContent = {
   managingPartner: {
     name: "Dr. Qaisar H. Metawea",
     role: "Founder and Managing Partner",
-    bio: "We are a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.",
+    bio: "Qaisar Hamed Metawea Law Firm (QHM) is a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.",
     extendedBio:
       "We deliver partner-led, commercially driven legal solutions designed to provide regulatory certainty, mitigate transactional risk, and accelerate speed to market.",
     cta: managingPartnerCta,
@@ -339,7 +342,7 @@ export const homepageContent = {
   footer: {
     firmName: "Qaisar H Metawea Law Firm.",
     description:
-      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     offices: [jeddahOffice, riyadhOffice],
     links: footerLinks,
     socialLinks,

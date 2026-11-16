@@ -18,13 +18,13 @@ export default function WhyQhm() {
     <SectionReveal className="bg-bg-base px-5 py-24 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <motion.div variants={revealItem}>
-          <SectionLabel>Core Competencies</SectionLabel>
+          <SectionLabel>Our Firm</SectionLabel>
         </motion.div>
         <motion.h2
           variants={revealItem}
           className="mt-4 max-w-4xl text-4xl font-semibold uppercase leading-tight text-brand md:text-6xl"
         >
-          <ScrollTextReveal>Why Counsel Chooses Us</ScrollTextReveal>
+          <ScrollTextReveal>Core Value Propositions</ScrollTextReveal>
         </motion.h2>
         <motion.div
           initial="hidden"

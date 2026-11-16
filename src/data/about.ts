@@ -1,62 +1,99 @@
 export const aboutData = {
   hero: {
     eyebrow: "The Firm",
-    heading: "About Us",
-    subheading: "Partner-Led Corporate Counsel in Saudi Arabia",
+    heading: "About QHM",
+    subheading:
+      "Qaisar Hamed Metawea Law Firm (QHM) is a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors.",
   },
   intro: {
-    label: "Saudi Corporate Law Firm",
-    body: "We are a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors. We operate with a partner-led model, ensuring senior oversight and regulatory certainty across all mandates.",
+    label: "About QHM",
+    heading: "Strategic Advisory Rather Than Reactive Legal Support",
+    body: "Qaisar Hamed Metawea Law Firm (QHM) is a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors.",
+    subtext:
+      "Our practice is built on strategic advisory rather than reactive legal support. We operate with a partner-led model, ensuring senior oversight across all mandates.",
   },
   strategicFocus: {
-    label: "Strategic Advisory Focus",
-    intro: "Our practice is built on strategic advisory rather than reactive legal support. We guide corporates through Saudi Arabia's evolving legal framework, focusing on:",
+    label: "Strategic Focus",
+    heading: "Core Practice Focus",
+    intro:
+      "Our practice is built on strategic advisory rather than reactive legal support. We focus on:",
     pillars: [
-      { title: "Market Entry & FDI", description: "Structuring foreign investment and regional headquarters setups." },
-      { title: "Corporate Governance", description: "Navigating regulatory compliance and protecting enterprise value." },
-      { title: "Tax & Zakat", description: "ZATCA advisory, dispute representation, and transfer pricing." },
-      { title: "Cross-Border Transactions", description: "Executing complex M&A, joint ventures, and international commercial agreements." },
-      { title: "Government Engagements", description: "Advising on ministries, public institutions, and regulatory changes." },
-      { title: "Commercial Disputes", description: "High-value litigation strategy and arbitration support." },
+      {
+        title: "Market Entry & Foreign Investment Structuring",
+        description:
+          "Structuring foreign investments, MISA approvals, and regional headquarters setup.",
+      },
+      {
+        title: "Corporate Governance & Regulatory Compliance",
+        description:
+          "Governance frameworks, board advisory, and ongoing regulatory compliance.",
+      },
+      {
+        title: "Tax & Zakat Advisory and Dispute Representation",
+        description:
+          "ZATCA advisory, objection procedures, and representation before Tax Committees.",
+      },
+      {
+        title: "Cross-Border Transactions",
+        description:
+          "Complex M&A, cross-border joint ventures, and international corporate transactions.",
+      },
+      {
+        title: "Government-Related Engagements",
+        description:
+          "Advising and representing clients before key Saudi authorities and public entities.",
+      },
+      {
+        title: "High-Value Commercial Disputes",
+        description:
+          "Litigation strategy, tax dispute representation, and arbitration support.",
+      },
     ],
   },
   methodology: {
-    label: "Methodology",
-    heading: "Partner-Led Service With Institutional Depth",
+    label: "Partner-Led Execution",
+    heading: "Senior-Level Oversight Across All Mandates",
     pillars: [
       {
-        title: "Partner-Led Engagement",
-        description: "Dr. Qaisar Metawea acts as lead partner on strategically significant matters, providing senior oversight and directing delivery through a structured legal team.",
+        title: "Partner-Led Execution",
+        description:
+          "All mandates are partner-led, with senior-level oversight and structured execution to ensure precision and accountability.",
       },
       {
-        title: "Bilingual Capability",
-        description: "Arabic and English fluency across the team, enabling seamless engagement with Saudi regulators, in-house counsel, and global law firms.",
+        title: "Regulatory Certainty",
+        description:
+          "We guide corporates through Saudi Arabia’s evolving legal framework with clarity and strategic foresight, ensuring compliance while protecting commercial interests.",
       },
       {
-        title: "Regulatory Depth",
-        description: "Extensive experience advising key Saudi ministries and public institutions, positioning the firm to deliver risk-informed counsel aligned with Vision 2030 priorities.",
+        title: "Transactional Risk Management",
+        description:
+          "From structuring investments to negotiating cross-border agreements, we mitigate legal exposure and protect enterprise value at every stage.",
       },
       {
-        title: "Complex Mandates",
-        description: "Structured to support multi-workstream corporate transactions requiring coordination across regulatory, corporate, employment, tax, and dispute resolution functions.",
+        title: "Government & Regulatory Engagement",
+        description:
+          "We advise and represent clients before key Saudi authorities, including ZATCA and dispute resolution committees, leveraging deep institutional knowledge.",
       },
     ],
   },
   positioning: {
-    label: "Our Positioning",
-    heading: "The Pre-Eminent Corporate Choice",
+    label: "Our Difference",
+    heading: "Our Difference",
     pillars: [
       {
         title: "Corporate-Focused Advisory",
-        description: "We act exclusively for multinational corporations, financial institutions, and regional headquarters requiring precision, discretion, and commercial alignment in Saudi Arabia. We do not intake general commercial or individual mandates.",
+        description:
+          "We act for multinational corporations, financial institutions, and regional headquarters requiring precision, discretion, and commercial alignment.",
       },
       {
         title: "Institutional Experience",
-        description: "We are one of the few Saudi firms with longstanding experience appearing before Zakat and Tax Committees (Committees for Resolution of Tax Violations and Disputes) since their inception, providing unmatched historical and procedural insight.",
+        description:
+          "We are one of the few Saudi firms with longstanding experience appearing before Zakat and Tax Committees since their inception.",
       },
       {
-        title: "Cross-Border Execution",
-        description: "Operating seamlessly in Arabic and English, our team supports international boards, regional counsel, and global stakeholders, bridging the gap between local regulatory expectations and international corporate standards.",
+        title: "Bilingual & Cross-Border",
+        description:
+          "Our team operates seamlessly in Arabic and English, supporting international boards, regional counsel, and global stakeholders.",
       },
     ],
   },

@@ -83,8 +83,11 @@ export default function Footer() {
           <div className="h-px w-full bg-white/10 animate-pulse" />
         </motion.div>
 
-        <motion.div variants={revealItem} className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-8 text-xs text-white/50 w-full text-center md:text-left">
-          <p>
+        <motion.div variants={revealItem} className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-8 text-xs text-white/60 w-full text-center md:text-left">
+          <p className="max-w-3xl leading-relaxed">
+            {footer.description}
+          </p>
+          <p className="shrink-0 text-white/40">
             © {new Date().getFullYear()} {footer.firmName} All rights reserved.
           </p>
         </motion.div>

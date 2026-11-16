@@ -152,7 +152,7 @@ export default function TeamPage() {
 
           <motion.div variants={item} className="max-w-xl self-end lg:justify-self-end">
             <p className="text-base leading-8 text-black/58">
-              Our team consists of bilingual Saudi-qualified lawyers and experienced legal consultants who combine regulatory insight with commercial pragmatism.
+              Our team consists of bilingual Saudi-qualified lawyers and experienced legal consultants who combine regulatory insight with commercial pragmatism. All mandates are partner-led, with senior-level oversight and structured execution to ensure precision and accountability.
             </p>
             <div className="mt-10 grid grid-cols-3 border border-brand text-center">
               <motion.div variants={item} className="border-r border-brand p-4">

@@ -19,16 +19,16 @@ export default async function InsightsPage() {
       <section className="border-b border-brand bg-bg-base px-5 pb-16 pt-24 sm:px-8 lg:px-10 lg:pb-20">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>
-            <p className="mb-5 text-xs font-light uppercase text-brand">Insights</p>
-            <h1 className="max-w-5xl text-6xl font-semibold uppercase leading-[0.9] text-brand sm:text-7xl lg:text-[8rem]">
-              Legal Insights
+            <p className="mb-5 text-xs font-light uppercase text-brand">Publications</p>
+            <h1 className="max-w-5xl text-5xl font-semibold uppercase leading-[0.95] text-brand sm:text-6xl lg:text-7xl">
+              Insights for Corporate Decision-Makers
             </h1>
             <div className="mt-8 h-px w-full max-w-xl origin-left bg-brand" />
           </div>
 
           <div className="max-w-xl lg:justify-self-end">
             <p className="text-base leading-8 text-black/58">
-              Regulatory updates, market-entry analysis, and corporate legal commentary for companies operating in Saudi Arabia.
+              Our publications focus on regulatory developments, tax updates, and legislative changes impacting multinational operations in Saudi Arabia. We publish practical guidance tailored to general counsel, CFOs, compliance officers, and regional executives.
             </p>
           </div>
         </div>

@@ -6,14 +6,12 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  CheckCircle2,
   Building2,
   ShieldCheck,
   Briefcase,
   Scale,
 } from "lucide-react";
 import type { SectorItem } from "@/data/sectors";
-import { sectorsData } from "@/data/sectors";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -41,7 +39,7 @@ const valuePropositions = [
   {
     title: "Regulatory Certainty",
     description:
-      "We guide corporates through Saudi Arabia's evolving legal framework with clarity and strategic foresight, ensuring compliance while protecting commercial interests.",
+      "We guide corporates through Saudi Arabia’s evolving legal framework with clarity and strategic foresight, ensuring compliance while protecting commercial interests.",
     icon: ShieldCheck,
   },
   {
@@ -126,59 +124,24 @@ export default function SectorDetailPage({
 
             <motion.p
               variants={itemVariants}
-              className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/85 sm:text-xl"
+              className="mt-6 max-w-3xl text-lg font-light leading-relaxed text-white/85 sm:text-xl"
             >
-              {sector.summary}
+              {sector.intro}
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Strategic Overview & Key Focus Areas */}
+      {/* Positioning Section */}
       <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div>
+        <div className="mx-auto max-w-7xl">
+          <div className="border-l-2 border-brand pl-6 sm:pl-8">
             <span className="font-mono text-xs uppercase tracking-widest text-brand/60">
-              Overview
+              Sector Advisory Positioning
             </span>
-            <h2 className="mt-3 text-3xl font-light leading-tight text-brand sm:text-4xl">
-              Strategic Counsel & Execution
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-neutral-700 sm:text-lg sm:leading-8">
-              {sector.description}
+            <p className="mt-4 max-w-4xl text-lg font-light leading-relaxed text-brand sm:text-2xl sm:leading-10">
+              {sector.positioning}
             </p>
-
-            <div className="mt-8 border-l-2 border-brand pl-6">
-              <p className="text-sm italic text-neutral-600 sm:text-base">
-                &ldquo;Our practice areas are structured around the needs of
-                multinational corporations operating in or entering Saudi
-                Arabia. We focus on high-value corporate mandates requiring
-                regulatory precision and strategic execution.&rdquo;
-              </p>
-            </div>
-          </div>
-
-          <div className="border border-brand/15 bg-neutral-50 p-8 sm:p-10">
-            <span className="font-mono text-xs uppercase tracking-widest text-brand/60">
-              Key Focus Areas
-            </span>
-            <h3 className="mt-3 text-2xl font-light text-brand">
-              Advisory & Compliance Scope
-            </h3>
-            <ul className="mt-6 space-y-4">
-              {sector.keyFocusAreas.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-sm leading-relaxed text-neutral-800 sm:text-base"
-                >
-                  <CheckCircle2
-                    size={18}
-                    className="mt-0.5 shrink-0 text-brand"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
@@ -196,10 +159,6 @@ export default function SectorDetailPage({
                   Representative Mandates
                 </h2>
               </div>
-              <p className="max-w-md text-sm text-white/60">
-                Selected corporate advisory, regulatory approvals, and
-                high-value transactions delivered across the Kingdom.
-              </p>
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -212,7 +171,7 @@ export default function SectorDetailPage({
                     <span className="inline-block border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-mono tracking-wider text-white/80">
                       {mandate.category}
                     </span>
-                    <h3 className="mt-5 text-lg font-normal leading-snug text-white">
+                    <h3 className="mt-5 text-base font-normal leading-snug text-white sm:text-lg">
                       {mandate.headline}
                     </h3>
                   </div>
@@ -322,8 +281,12 @@ export default function SectorDetailPage({
             <p className="mt-4 text-sm leading-relaxed text-white/80 sm:text-base">
               For multinational corporations, institutional clients, and
               international law firms requiring trusted on-the-ground counsel in
-              Saudi Arabia, our team provides partner-led, commercially focused
-              legal support delivered to international standards.
+              Saudi Arabia, our Corporate Advisory Team provides partner-led,
+              commercially focused legal support delivered to international
+              standards.
+            </p>
+            <p className="mt-2 text-xs text-white/60">
+              We prioritize mandates aligned with our corporate advisory focus.
             </p>
           </div>
           <Link

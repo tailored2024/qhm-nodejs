@@ -18,6 +18,7 @@ import {
 
 type ExpertiseItem = {
   title: string;
+  slug: string;
   icon: React.ElementType;
   description: string;
   points?: string[];
@@ -26,42 +27,49 @@ type ExpertiseItem = {
 const expertiseItems: ExpertiseItem[] = [
   {
     title: "Corporate & Commercial",
+    slug: "corporate-and-commercial",
     icon: Building2,
     description:
       "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
   },
   {
     title: "Foreign Direct Investment (FDI)",
+    slug: "foreign-direct-investment",
     icon: Globe,
     description:
       "Advising foreign investors on Saudi market entry, licensing, MISA approvals, regional headquarters setup, and restructuring.",
   },
   {
-    title: "Regulatory Advisory & Public Policy",
+    title: "Government & Regulatory Engagement",
+    slug: "government-and-regulatory-engagement",
     icon: Shield,
     description:
-      "Advising and representing clients before key Saudi authorities, ensuring regulatory certainty within evolving legal frameworks.",
+      "We advise and represent clients before key Saudi authorities, including ZATCA and dispute resolution committees, leveraging deep institutional knowledge.",
   },
   {
     title: "Dispute Resolution & Litigation",
+    slug: "dispute-resolution-and-litigation",
     icon: Gavel,
     description:
       "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
   },
   {
     title: "Employment & Executive Matters",
+    slug: "employment-and-executive-matters",
     icon: Users,
     description:
       "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
   },
   {
     title: "Intellectual Property & Technology",
+    slug: "intellectual-property-and-technology",
     icon: Lightbulb,
     description:
       "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
   },
   {
     title: "Tax, Zakat & Transfer Pricing",
+    slug: "tax-zakat-and-transfer-pricing",
     icon: Landmark,
     description:
       "We are among the few Saudi firms with institutional experience in committee proceedings since inception.",
@@ -75,9 +83,17 @@ const expertiseItems: ExpertiseItem[] = [
   },
   {
     title: "Sector-Specific Advisory",
+    slug: "sector-specific-advisory",
     icon: Zap,
     description:
-      "Strategic counsel across Energy & Infrastructure, Healthcare & Pharmaceuticals, Aviation & Maritime, Real Estate & Development, and IT & Telecom.",
+      "Energy & Infrastructure, Healthcare & Pharmaceuticals, Aviation & Maritime, Real Estate & Development, and IT & Telecom.",
+    points: [
+      "Energy & Infrastructure",
+      "Healthcare & Pharmaceuticals",
+      "Aviation & Maritime",
+      "Real Estate & Development",
+      "IT & Telecom",
+    ],
   },
 ];
 
@@ -208,7 +224,7 @@ export default function ExpertisePage() {
             className="max-w-xl lg:justify-self-end"
           >
             <p className="text-base leading-8 text-black/58">
-              Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia.
+              Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.
             </p>
           </motion.div>
         </motion.div>
@@ -300,6 +316,15 @@ export default function ExpertisePage() {
                             ))}
                           </ul>
                         )}
+                        <div className="mt-4 pt-2">
+                          <Link
+                            href={`/expertise/${area.slug}`}
+                            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand underline decoration-brand/30 underline-offset-4"
+                          >
+                            <span>Explore Mandate</span>
+                            <ArrowRight size={13} />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -324,6 +349,18 @@ export default function ExpertisePage() {
                         ))}
                       </ul>
                     )}
+                    <div className="mt-8">
+                      <Link
+                        href={`/expertise/${area.slug}`}
+                        className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand transition-colors group-hover:text-white"
+                      >
+                        <span>Explore Mandate</span>
+                        <ArrowRight
+                          size={14}
+                          className="transition-transform group-hover:translate-x-1"
+                        />
+                      </Link>
+                    </div>
                   </div>
                 </motion.article>
               );

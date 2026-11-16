@@ -66,14 +66,19 @@ export default function ContactPage() {
             />
           </div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 24, filter: "blur(12px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.26, duration: 0.82, ease }}
             className="max-w-xl text-base leading-8 text-black/58 lg:justify-self-end"
           >
-            Engage our corporate team for strategic counsel on your commercial objectives in Saudi Arabia.
-          </motion.p>
+            <p>
+              For multinational corporations, institutional clients, and international law firms requiring trusted on-the-ground counsel in Saudi Arabia, our Corporate Advisory Team provides partner-led, commercially focused legal support delivered to international standards.
+            </p>
+            <p className="mt-3 text-xs uppercase tracking-wider text-brand font-medium">
+              We prioritize mandates aligned with our corporate advisory focus.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -87,10 +92,10 @@ export default function ContactPage() {
             className="bg-white p-7 sm:p-10 lg:p-12"
           >
             <motion.h2 variants={reveal} className="text-4xl font-semibold uppercase leading-tight text-brand sm:text-5xl">
-              Discuss Your Mandate
+              Engage with QHM&apos;s Corporate Advisory Team
             </motion.h2>
             <motion.p variants={reveal} className="mt-5 max-w-2xl text-sm leading-7 text-black/55">
-              For multinational corporations, institutional clients, and international law firms requiring trusted on-the-ground counsel in Saudi Arabia.
+              We regularly collaborate with global firms to provide seamless local execution backed by deep regulatory insight and practical Saudi market experience. To discuss your requirements, please contact our Riyadh office directly or submit a confidential enquiry below.
             </motion.p>
 
             <div className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2">

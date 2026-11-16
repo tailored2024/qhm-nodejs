@@ -31,7 +31,7 @@ export default function MandatesStream() {
                 variants={revealItem}
                 className="mt-4 max-w-3xl text-4xl font-semibold uppercase leading-tight md:text-6xl"
               >
-                <ScrollTextReveal>Key Achievements</ScrollTextReveal>
+                <ScrollTextReveal>Representative Mandates</ScrollTextReveal>
               </motion.h2>
             </div>
             <motion.p

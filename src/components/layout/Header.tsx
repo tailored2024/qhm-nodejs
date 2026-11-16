@@ -133,6 +133,8 @@ export default function Header() {
                 alt="QHM Law Firm"
                 width={180}
                 height={60}
+                priority
+                loading="eager"
                 className="h-auto w-32 object-contain"
               />
               <button

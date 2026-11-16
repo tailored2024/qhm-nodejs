@@ -227,7 +227,7 @@ export default function ExpertisePage() {
   const ruleScale = useTransform(scrollYProgress, [0, 0.85], [1, 0.42]);
 
   return (
-    <main className="bg-white">
+    <main className="relative bg-white">
       <section ref={heroRef} className="relative overflow-hidden border-b border-brand bg-bg-base px-5 pb-16 pt-24 sm:px-8 lg:px-10 lg:pb-24">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>

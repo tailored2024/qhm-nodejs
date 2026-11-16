@@ -123,48 +123,69 @@ export default function Header() {
             transition={{ duration: 0.68, ease }}
             className="fixed inset-0 z-[60] flex flex-col bg-white text-brand"
           >
-            <div className="flex items-center justify-between px-5 py-4 sm:px-8">
+            <div className="flex items-center justify-between border-b border-brand/15 px-5 py-4 sm:px-8">
               <Image
                 src="/assets/identity/QHM_Blue.svg"
                 alt="QHM Law Firm"
                 width={180}
                 height={60}
-                className="h-auto w-36 object-contain"
+                className="h-auto w-32 object-contain"
               />
               <button
                 onClick={() => setMenuOpen(false)}
-                className="flex h-10 w-10 items-center justify-center border border-brand text-brand"
+                className="flex h-10 w-10 items-center justify-center border border-brand text-brand transition-colors hover:bg-brand hover:text-white"
                 aria-label="Close menu"
               >
                 <X size={18} />
               </button>
             </div>
 
-            <nav className="flex flex-1 flex-col justify-center gap-6 px-6">
-              {flatNav.map((link, index) => (
-                <span key={link.href} className="overflow-hidden border-b border-brand pb-6">
-                  <motion.span
-                    initial={{ y: "110%" }}
-                    animate={{ y: 0 }}
-                    transition={{ delay: 0.1 + index * 0.07, duration: 0.75, ease }}
-                    className="block"
+            <nav className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center px-6 sm:px-10">
+              {flatNav.map((link, index) => {
+                const isActive = pathname === link.href;
+                return (
+                  <span
+                    key={link.href}
+                    className="overflow-hidden border-b border-brand/15 py-3.5 sm:py-4"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="block text-4xl font-light uppercase text-brand transition-colors hover:text-brand sm:text-5xl"
+                    <motion.span
+                      initial={{ y: "110%" }}
+                      animate={{ y: 0 }}
+                      transition={{
+                        delay: 0.08 + index * 0.05,
+                        duration: 0.6,
+                        ease,
+                      }}
+                      className="block"
                     >
-                      {link.label}
-                    </Link>
-                  </motion.span>
-                </span>
-              ))}
+                      <Link
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className={`flex items-center justify-between text-base uppercase tracking-widest transition-colors sm:text-lg ${
+                          isActive
+                            ? "font-semibold text-brand"
+                            : "font-light text-brand/85 hover:text-brand"
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        {isActive ? (
+                          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                        ) : (
+                          <span className="font-mono text-xs text-brand/30">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                        )}
+                      </Link>
+                    </motion.span>
+                  </span>
+                );
+              })}
             </nav>
 
-            <div className="flex items-center justify-between border-t border-brand px-6 py-6 text-xs font-light uppercase text-brand">
+            <div className="flex items-center justify-between border-t border-brand/15 px-6 py-5 text-[11px] font-light uppercase tracking-widest text-brand/60">
               <span>Jeddah</span>
               <span>Riyadh</span>
-              <span>QHM</span>
+              <span>QHM Law Firm</span>
             </div>
           </motion.div>
         )}

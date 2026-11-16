@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Building2,
+  ChevronDown,
   Globe,
   Gavel,
   Lightbulb,
@@ -69,10 +71,10 @@ export default function ExpertiseExplorer() {
         </div>
 
         <div className="grid gap-px bg-brand lg:grid-cols-[0.95fr_1.05fr]">
-          {/* Main Preview Panel (visible on all screens, updates when any practice card is selected) */}
+          {/* Desktop Preview Panel (hidden on mobile; mobile cards expand inline so users never have to scroll up) */}
           <motion.div
             variants={revealItem}
-            className="relative flex flex-col justify-between overflow-hidden p-6 sm:p-10 lg:p-12 min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] bg-brand text-white"
+            className="relative hidden lg:flex flex-col justify-between overflow-hidden p-8 text-white sm:p-10 lg:min-h-[560px] lg:p-12 bg-brand"
           >
             <AnimatePresence mode="wait">
               {activeArea.image ? (
@@ -108,29 +110,29 @@ export default function ExpertiseExplorer() {
                       {String(safeActiveIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="mt-8 sm:mt-14 max-w-xl text-3xl sm:text-5xl font-light leading-[0.98] sm:leading-[0.98] lg:text-6xl">
+                  <h3 className="mt-14 max-w-xl text-5xl font-light leading-[0.98] lg:text-6xl">
                     {activeArea.title}
                   </h3>
                 </div>
 
-                <div className="mt-8 sm:mt-12">
-                  <p className="max-w-xl text-sm sm:text-base leading-6 sm:leading-7 text-white/80">
+                <div className="mt-12">
+                  <p className="max-w-xl text-base leading-7 text-white/80">
                     {activeArea.description}
                   </p>
                   {activeArea.points && activeArea.points.length > 0 && (
-                    <ul className="mt-5 sm:mt-6 space-y-2 sm:space-y-2.5">
+                    <ul className="mt-6 space-y-2.5">
                       {activeArea.points.map((point) => (
                         <li
                           key={point}
-                          className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-white/85"
+                          className="flex items-start gap-3 text-sm text-white/85"
                         >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-white" />
                           <span>{point}</span>
                         </li>
                       ))}
                     </ul>
                   )}
-                  <div className="mt-6 sm:mt-8">
+                  <div className="mt-8">
                     <PremiumButton href={activeArea.href} inverse>
                       Explore Practice
                     </PremiumButton>
@@ -162,7 +164,7 @@ export default function ExpertiseExplorer() {
                     role="button"
                     tabIndex={0}
                     onClick={() => {
-                      setActiveIndex(i);
+                      setActiveIndex((prev) => (prev === i ? -1 : i));
                     }}
                     onMouseEnter={() => {
                       if (
@@ -175,7 +177,7 @@ export default function ExpertiseExplorer() {
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
-                        setActiveIndex(i);
+                        setActiveIndex((prev) => (prev === i ? -1 : i));
                       }
                     }}
                     className="flex w-full cursor-pointer flex-col justify-between select-none"
@@ -190,15 +192,25 @@ export default function ExpertiseExplorer() {
                             : "text-brand transition-colors group-hover:text-white"
                         }
                       />
-                      <span
-                        className={
-                          isActive
-                            ? "font-mono text-xs text-white/40"
-                            : "font-mono text-xs text-brand transition-colors group-hover:text-white/40"
-                        }
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                      <div className="flex items-center gap-2.5">
+                        <span
+                          className={
+                            isActive
+                              ? "font-mono text-xs text-white/40"
+                              : "font-mono text-xs text-brand transition-colors group-hover:text-white/40"
+                          }
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-300 lg:hidden ${
+                            isActive
+                              ? "rotate-180 text-white"
+                              : "text-brand group-hover:text-white"
+                          }`}
+                        />
+                      </div>
                     </div>
 
                     <div className="mt-6 sm:mt-8 lg:mt-12">
@@ -214,9 +226,21 @@ export default function ExpertiseExplorer() {
                     </div>
                   </div>
 
-                  {/* On mobile, when this card is selected, also show its description and points inline */}
+                  {/* Mobile Inline Expansion (shows details right under card; zero scrolling up needed) */}
                   {isActive && (
-                    <div className="mt-4 border-t border-white/20 pt-4 lg:hidden">
+                    <div className="mt-4 border-t border-white/15 pt-4 lg:hidden">
+                      {area.image && (
+                        <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden bg-white/5">
+                          <Image
+                            src={area.image}
+                            alt={area.title}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        </div>
+                      )}
                       <p className="text-sm leading-relaxed text-white/80">
                         {area.description}
                       </p>

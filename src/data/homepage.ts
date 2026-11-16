@@ -138,31 +138,31 @@ export const industryFocus = [
     number: "01.",
     title: "Energy & Infrastructure",
     icon: "zap",
-    href: "/expertise",
+    href: "/sectors/energy-and-infrastructure",
   },
   {
     number: "02.",
     title: "Healthcare & Pharmaceuticals",
     icon: "health",
-    href: "/expertise",
+    href: "/sectors/healthcare-and-pharmaceuticals",
   },
   {
     number: "03.",
     title: "Aviation & Maritime",
     icon: "plane",
-    href: "/expertise",
+    href: "/sectors/aviation-and-maritime",
   },
   {
     number: "04.",
     title: "Real Estate & Development",
     icon: "building",
-    href: "/expertise",
+    href: "/sectors/real-estate-and-development",
   },
   {
     number: "05.",
     title: "IT & Telecom",
     icon: "chip",
-    href: "/expertise",
+    href: "/sectors/it-and-telecom",
   },
 ];
 

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowRight,
   Building2,
   ChevronDown,
   Globe,
@@ -40,6 +42,14 @@ const practiceIcons: Record<string, React.ElementType> = {
   "Tax & Zakat": Calculator,
   "Sector-Specific Advisory": Zap,
   "Sector Advisory": Zap,
+};
+
+const sectorSlugMap: Record<string, string> = {
+  "Energy & Infrastructure": "/sectors/energy-and-infrastructure",
+  "Healthcare & Pharmaceuticals": "/sectors/healthcare-and-pharmaceuticals",
+  "Aviation & Maritime": "/sectors/aviation-and-maritime",
+  "Real Estate & Development": "/sectors/real-estate-and-development",
+  "IT & Telecom": "/sectors/it-and-telecom",
 };
 
 export default function ExpertiseExplorer() {
@@ -127,15 +137,31 @@ export default function ExpertiseExplorer() {
                   </p>
                   {activeArea.points && activeArea.points.length > 0 && (
                     <ul className="mt-5 space-y-2">
-                      {activeArea.points.map((point) => (
-                        <li
-                          key={point}
-                          className="flex items-start gap-2.5 text-sm text-white/85"
-                        >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
+                      {activeArea.points.map((point) => {
+                        const sectorHref = sectorSlugMap[point];
+                        return (
+                          <li
+                            key={point}
+                            className="flex items-start gap-2.5 text-sm text-white/85"
+                          >
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                            {sectorHref ? (
+                              <Link
+                                href={sectorHref}
+                                className="group/link inline-flex items-center gap-1.5 text-white/90 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+                              >
+                                <span>{point}</span>
+                                <ArrowRight
+                                  size={12}
+                                  className="transition-transform group-hover/link:translate-x-0.5"
+                                />
+                              </Link>
+                            ) : (
+                              <span>{point}</span>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                   <div className="mt-8">
@@ -229,6 +255,14 @@ export default function ExpertiseExplorer() {
                       >
                         {area.title}
                       </h3>
+                      <ArrowRight
+                        size={16}
+                        className={`hidden lg:block ${
+                          isActive
+                            ? "mt-6 text-white/70"
+                            : "mt-6 -translate-x-2 text-brand transition-all group-hover:translate-x-0 group-hover:text-white/70"
+                        }`}
+                      />
                     </div>
                   </div>
 
@@ -252,15 +286,31 @@ export default function ExpertiseExplorer() {
                       </p>
                       {area.points && area.points.length > 0 && (
                         <ul className="mt-3 space-y-2">
-                          {area.points.map((point) => (
-                            <li
-                              key={point}
-                              className="flex items-start gap-2 text-xs sm:text-sm text-white/90"
-                            >
-                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
-                              <span>{point}</span>
-                            </li>
-                          ))}
+                          {area.points.map((point) => {
+                            const sectorHref = sectorSlugMap[point];
+                            return (
+                              <li
+                                key={point}
+                                className="flex items-start gap-2 text-xs sm:text-sm text-white/90"
+                              >
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                                {sectorHref ? (
+                                  <Link
+                                    href={sectorHref}
+                                    className="group/link inline-flex items-center gap-1 text-white/95 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+                                  >
+                                    <span>{point}</span>
+                                    <ArrowRight
+                                      size={11}
+                                      className="transition-transform group-hover/link:translate-x-0.5"
+                                    />
+                                  </Link>
+                                ) : (
+                                  <span>{point}</span>
+                                )}
+                              </li>
+                            );
+                          })}
                         </ul>
                       )}
                       <div className="mt-5">

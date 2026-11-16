@@ -84,28 +84,33 @@ const expertiseItems: ExpertiseItem[] = [
 const sectorItems = [
   {
     title: "Energy & Infrastructure",
+    slug: "energy-and-infrastructure",
     description:
       "Vision 2030 Lead Sector - Power, renewables, conventional energy, and large-scale public-private infrastructure projects.",
   },
   {
     title: "Healthcare & Pharmaceuticals",
+    slug: "healthcare-and-pharmaceuticals",
     description:
       "Regulatory compliance for healthcare providers, pharmaceutical licensing, health tech, and medical practice regulations.",
   },
   {
     title: "Aviation & Maritime",
+    slug: "aviation-and-maritime",
     description:
       "GACA regulatory compliance, commercial aircraft leasing, maritime logistics, transport concessions, and port operations.",
   },
   {
     title: "Real Estate & Development",
+    slug: "real-estate-and-development",
     description:
       "Mega-project advisory, off-plan sales licensing (Wafi), zoning, FIDIC construction contracts, and property disputes.",
   },
   {
-    title: "IT, Media & Telecommunications",
+    title: "IT & Telecom",
+    slug: "it-and-telecom",
     description:
-      "CST regulatory compliance, cloud computing frameworks, telecommunications licensing, cyber governance, and media rights.",
+      "CST regulatory compliance, cloud computing frameworks, telecommunications licensing, cyber governance, and digital regulatory compliance.",
   },
 ];
 
@@ -343,25 +348,39 @@ export default function ExpertisePage() {
 
           <motion.div variants={container} className="grid gap-px bg-brand">
             {sectorItems.map((sector, index) => (
-              <motion.article
+              <motion.div
                 key={sector.title}
                 variants={blurItem}
                 whileHover={{ x: 6 }}
                 transition={{ duration: 0.3, ease }}
-                className="group grid gap-6 bg-white p-6 transition-colors hover:bg-brand hover:text-white sm:grid-cols-[0.18fr_0.82fr] sm:p-7"
               >
-                <span className="font-mono text-xs text-brand transition-colors group-hover:text-white/42">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-2xl font-light leading-tight text-brand transition-colors group-hover:text-white">{sector.title}</h3>
-                  {sector.description && (
-                    <p className="mt-3 max-w-2xl text-sm leading-7 text-black/52 transition-colors group-hover:text-white/62">
-                      {sector.description}
-                    </p>
-                  )}
-                </div>
-              </motion.article>
+                <Link
+                  href={`/sectors/${sector.slug}`}
+                  className="group flex flex-col justify-between gap-6 bg-white p-6 transition-colors hover:bg-brand hover:text-white sm:flex-row sm:p-7"
+                >
+                  <div className="flex items-start gap-6">
+                    <span className="font-mono text-xs text-brand transition-colors group-hover:text-white/42">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-2xl font-light leading-tight text-brand transition-colors group-hover:text-white">
+                        {sector.title}
+                      </h3>
+                      {sector.description && (
+                        <p className="mt-3 max-w-2xl text-sm leading-7 text-black/52 transition-colors group-hover:text-white/70">
+                          {sector.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center self-end sm:self-center">
+                    <ArrowRight
+                      size={18}
+                      className="text-brand/40 transition-all group-hover:translate-x-1 group-hover:text-white"
+                    />
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </motion.div>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import {
@@ -63,15 +64,24 @@ export default function SectorCinema() {
               key={item.title}
               variants={rowVariant}
               custom={index}
-              className="flex items-center justify-between border-b border-white/16 px-6 py-5 last:border-b-0"
             >
-              <div>
-                <p className="text-xs font-medium text-white/70">
-                  {item.number}
-                </p>
-                <h3 className="mt-2 text-xl font-normal">{item.title}</h3>
-              </div>
-              <ArrowRight size={16} className="text-white/40" />
+              <Link
+                href={item.href}
+                className="group flex items-center justify-between border-b border-white/16 px-6 py-5 transition-colors hover:bg-white/10 last:border-b-0"
+              >
+                <div>
+                  <p className="text-xs font-medium text-white/70">
+                    {item.number}
+                  </p>
+                  <h3 className="mt-2 text-xl font-normal transition-colors group-hover:text-white">
+                    {item.title}
+                  </h3>
+                </div>
+                <ArrowRight
+                  size={16}
+                  className="text-white/40 transition-transform group-hover:translate-x-1 group-hover:text-white"
+                />
+              </Link>
             </motion.div>
           ))}
         </motion.div>

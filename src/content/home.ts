@@ -1,20 +1,5 @@
-export const navItems = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  { label: "Expertise", href: "/expertise" },
-  { label: "Team", href: "/team" },
-  { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
-
-export const headerCta = {
-  label: "Contact Us",
-  href: "/contact",
-};
-
+import { navItems, headerCta, footerLinks, socialLinks } from "@/config/navigation";
+import { jeddahOffice, riyadhOffice } from "@/config/offices";
 export const heroCtas = [
   {
     label: "Request a Consultation",
@@ -278,43 +263,9 @@ export const newsletter = {
   submitLabel: "Subscribe",
 };
 
-export const socialLinks = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/qhmlawfirm",
-  },
-];
 
-export const jeddahOffice = {
-  label: "Jeddah Headquarters",
-  address: [
-    "The Headquarter Business Park",
-    "Al-Shati, Corniche, 17th Floor Unit 1705",
-    "P.O Box 9420, Jeddah 21413",
-    "Kingdom of Saudi Arabia",
-  ],
-  mapLabel: "View on Map",
-  mapHref: "#",
-};
 
-export const riyadhOffice = {
-  label: "Riyadh Office",
-  address: [
-    "Verdun Tower",
-    "King Fahad Rd, Al Olaya District",
-    "Unit 604, Riyadh 12212",
-    "Saudi Arabia",
-  ],
-  mapLabel: "View on Map",
-  mapHref: "#",
-};
 
-export const footerLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "The Team", href: "/team" },
-  { label: "Contact", href: "/contact" },
-  { label: "Insights", href: "/insights" },
-];
 
 export const homepageContent = {
   navItems,

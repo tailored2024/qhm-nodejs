@@ -15,7 +15,7 @@ import {
   Copy,
 } from "lucide-react";
 import { useState } from "react";
-import type { TeamMember } from "@/data/team";
+import type { TeamMember } from "@/types/team";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 

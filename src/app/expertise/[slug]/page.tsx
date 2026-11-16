@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { mandatesData } from "@/data/mandates";
+import { getMandates, getMandateBySlug, getMandateWithAdjacent } from "@/server/repositories/mandates";
 import MandateDetailPage from "@/components/mandates/MandateDetailPage";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const mandatesData = await getMandates();
   return mandatesData.map((mandate) => ({
     slug: mandate.slug,
   }));
@@ -15,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const mandate = mandatesData.find((m) => m.slug === slug);
+  const mandate = await getMandateBySlug(slug);
 
   if (!mandate) {
     return {
@@ -45,15 +46,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const index = mandatesData.findIndex((m) => m.slug === slug);
-
-  if (index === -1) {
-    notFound();
-  }
-
-  const mandate = mandatesData[index];
-  const prev = index > 0 ? mandatesData[index - 1] : undefined;
-  const next = index < mandatesData.length - 1 ? mandatesData[index + 1] : undefined;
+  const result = await getMandateWithAdjacent(slug);
+  if (!result) notFound();
+  const { record: mandate, adjacent: { prev, next } } = result;
 
   return (
     <MandateDetailPage

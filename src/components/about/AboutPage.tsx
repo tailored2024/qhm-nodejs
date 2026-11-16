@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { aboutData } from "@/data/about";
+import { aboutData } from "@/content/about";
 
 const { hero, intro, strategicFocus, methodology, positioning, leadership } = aboutData;
 

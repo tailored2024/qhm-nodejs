@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { homepageContent } from "@/data/homepage";
+import { homepageContent } from "@/content/home";
 
 const { footer } = homepageContent;
 

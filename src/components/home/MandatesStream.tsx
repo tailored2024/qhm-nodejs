@@ -7,7 +7,6 @@ import {
   ease,
   revealItem,
   ScrollTextReveal,
-  SectionLabel,
   SectionReveal,
 } from "./shared";
 

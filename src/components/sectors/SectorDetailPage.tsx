@@ -11,7 +11,7 @@ import {
   Briefcase,
   Scale,
 } from "lucide-react";
-import type { SectorItem } from "@/data/sectors";
+import type { SectorItem } from "@/types/sector";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 

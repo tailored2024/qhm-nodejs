@@ -1,3 +1,4 @@
+import { getTeamMembers } from "@/server/repositories/team";
 import type { Metadata } from "next";
 import TeamPage from "@/components/team/TeamPage";
 
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/team" },
 };
 
-export default function Team() {
-  return <TeamPage />;
+export default async function Team() {
+  const members = await getTeamMembers();
+  return <TeamPage members={members} />;
 }

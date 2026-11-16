@@ -1,0 +1,37 @@
+[
+  {
+    "publication": "digital-evidence-law",
+    "photographer": "Ameer Albahouth",
+    "photoPage": "https://unsplash.com/photos/sunlight-streams-through-a-modern-wavy-patterned-ceiling-structure-AZmH67Kg5vw",
+    "imageUrl": "https://images.unsplash.com/photo-1782216703062-698ac15e317a?auto=format&fit=crop&crop=center&w=1600&h=1000&q=85",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "publication": "venture-capital-saudi-arabia",
+    "photographer": "Oualid Lakhrouti",
+    "photoPage": "https://unsplash.com/photos/modern-skyscrapers-dominate-a-sprawling-cityscape-under-a-hazy-sky-NCD37SPA2wk",
+    "imageUrl": "https://images.unsplash.com/photo-1778846266193-74c83f7f5117?auto=format&fit=crop&crop=center&w=1600&h=1000&q=85",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "publication": "personal-data-protection-law-pdpl",
+    "photographer": "Abdullah AlQasabi",
+    "photoPage": "https://unsplash.com/photos/al-faisaliah-center-skyscraper-in-riyadh-LfXWW6tfcFo",
+    "imageUrl": "https://images.unsplash.com/photo-1786953539676-27c02f0c40e4?auto=format&fit=crop&crop=center&w=1600&h=1000&q=85",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "publication": "tax-rules-for-rhq",
+    "photographer": "Ahmed Alghali",
+    "photoPage": "https://unsplash.com/photos/golden-sunset-light-illuminates-a-modern-building-and-palm-trees-Z0mm_YftyG4",
+    "imageUrl": "https://images.unsplash.com/photo-1783260898373-c3c6bd2c372e?auto=format&fit=crop&crop=center&w=1600&h=1000&q=85",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "publication": "civil-transactions-law",
+    "photographer": "Ahmed Alghali",
+    "photoPage": "https://unsplash.com/photos/modern-capital-market-authority-building-against-a-clear-blue-sky-veF_SZuQjmQ",
+    "imageUrl": "https://images.unsplash.com/photo-1783260898239-436d59864ec7?auto=format&fit=crop&crop=bottom&w=1600&h=1000&q=85",
+    "license": "https://unsplash.com/license"
+  }
+]

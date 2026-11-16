@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { clientLogos } from "@/data/businessAssets";
+import { clientLogos } from "@/content/businessAssets";
 import { revealItem, ScrollTextReveal, SectionReveal } from "./shared";
 
 const ribbonLogos = [...clientLogos, ...clientLogos];

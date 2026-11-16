@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { sectorsData } from "@/data/sectors";
+import { getSectors, getSectorBySlug, getSectorWithAdjacent } from "@/server/repositories/sectors";
 import SectorDetailPage from "@/components/sectors/SectorDetailPage";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const sectorsData = await getSectors();
   return sectorsData.map((sector) => ({
     slug: sector.slug,
   }));
@@ -15,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const sector = sectorsData.find((s) => s.slug === slug);
+  const sector = await getSectorBySlug(slug);
 
   if (!sector) {
     return {
@@ -45,15 +46,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const index = sectorsData.findIndex((s) => s.slug === slug);
-
-  if (index === -1) {
-    notFound();
-  }
-
-  const sector = sectorsData[index];
-  const prev = index > 0 ? sectorsData[index - 1] : undefined;
-  const next = index < sectorsData.length - 1 ? sectorsData[index + 1] : undefined;
+  const result = await getSectorWithAdjacent(slug);
+  if (!result) notFound();
+  const { record: sector, adjacent: { prev, next } } = result;
 
   return (
     <SectorDetailPage

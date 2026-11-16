@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "digital-evidence-law",
+    "sourceUrl": "https://qhmlawfirm.com/wp/digital-evidence-law/",
+    "textSha256": "a9120b02c5bc324e7dda216fdd5588a342c9a555a2692e7afeaecd715f470fd6",
+    "blockCount": 7,
+    "sourceLinks": []
+  },
+  {
+    "slug": "venture-capital-saudi-arabia",
+    "sourceUrl": "https://qhmlawfirm.com/wp/venture-capital-saudi-arabia/",
+    "textSha256": "a7f828167d6942c7c032308af53f5419945159d05be020f4ea45af4bb79c9218",
+    "blockCount": 5,
+    "sourceLinks": [
+      "https://d2p9i44hnkrmkx.cloudfront.net/files/research-files/1012024/5046823784071-KSA_Venture_Report_FY2023.pdf"
+    ]
+  },
+  {
+    "slug": "personal-data-protection-law-pdpl",
+    "sourceUrl": "https://qhmlawfirm.com/wp/personal-data-protection-law-pdpl/",
+    "textSha256": "17c096b712e15b3487160ddeeb77ec2e13aedb1452fe0cfe8764456c68beef27",
+    "blockCount": 12,
+    "sourceLinks": [
+      "https://sdaia.gov.sa/en/Research/Pages/DataProtection.aspx",
+      "https://sdaia.gov.sa/en/SDAIA/about/Documents/ImplementingRegulation.pdf"
+    ]
+  },
+  {
+    "slug": "tax-rules-for-rhq",
+    "sourceUrl": "https://qhmlawfirm.com/wp/tax-rules-for-foreign-companies-with-regional-headquarters-rhq-in-saudi-arabia/",
+    "textSha256": "18900b5631c4ad83407854041271ead096bfb76d15141ab26dbbb0512792443f",
+    "blockCount": 9,
+    "sourceLinks": []
+  },
+  {
+    "slug": "civil-transactions-law",
+    "sourceUrl": "https://qhmlawfirm.com/wp/key-points-of-the-civil-transactions-law-in-saudi-arabia/",
+    "textSha256": "08cea1970ff9aa820a8ed263861544d86854a5528375eb40e594aea7b82a6ff8",
+    "blockCount": 4,
+    "sourceLinks": [
+      "https://www.uqn.gov.sa/details?p=23125"
+    ]
+  }
+]

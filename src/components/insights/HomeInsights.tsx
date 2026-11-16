@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { InsightPost } from "@/lib/getInsights";
+import type { InsightPost } from "@/types/publication";
 
 interface HomeInsightsProps {
   posts: InsightPost[];
@@ -31,11 +32,12 @@ export default function HomeInsights({ posts }: HomeInsightsProps) {
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand/5">
                   {post.image ? (
-                    <img
+                    <Image
                       src={post.image}
-                      alt={post.title}
+                      alt={post.imageAlt || ""}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
+                      fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       decoding="async"
                     />
                   ) : (

@@ -1,8 +1,8 @@
 import HomePage from "@/components/home/HomePage";
-import { getInsights } from "@/lib/getInsights";
+import { getPublications } from "@/server/repositories/publications";
 
 export default async function Home() {
-  const { posts } = await getInsights();
+  const posts = await getPublications();
   return <HomePage posts={posts} />;
 }
 

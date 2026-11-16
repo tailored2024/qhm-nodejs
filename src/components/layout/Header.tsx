@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, X } from "lucide-react";
-import { navItems } from "@/data/homepage";
+import { navItems } from "@/config/navigation";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 

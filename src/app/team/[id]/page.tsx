@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { teamMembers } from "@/data/team";
+import { getTeamMembers, getTeamMemberById, getTeamMemberWithAdjacent } from "@/server/repositories/team";
 import MemberProfilePage from "@/components/team/MemberProfilePage";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const teamMembers = await getTeamMembers();
   return teamMembers.map((member) => ({
     id: member.id,
   }));
@@ -15,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const member = teamMembers.find((m) => m.id === id);
+  const member = await getTeamMemberById(id);
 
   if (!member) {
     return {
@@ -58,15 +59,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { id } = await params;
-  const index = teamMembers.findIndex((m) => m.id === id);
-
-  if (index === -1) {
-    notFound();
-  }
-
-  const member = teamMembers[index];
-  const prev = index > 0 ? teamMembers[index - 1] : undefined;
-  const next = index < teamMembers.length - 1 ? teamMembers[index + 1] : undefined;
+  const result = await getTeamMemberWithAdjacent(id);
+  if (!result) notFound();
+  const { record: member, adjacent: { prev, next } } = result;
 
   return (
     <MemberProfilePage

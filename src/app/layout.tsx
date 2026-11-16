@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import AppShell from "@/components/layout/AppShell";
 
-const siteUrl = new URL("https://www.qhmlawfirm.com");
-const siteName = "QHM Law Firm";
-const siteDescription =
-  "Qaisar Hamed Metawea Law Firm is a Saudi corporate law firm advising multinational companies, financial institutions, and regional headquarters.";
+import { siteUrl, siteName, siteDescription } from "@/config/site";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Download, FileText } from "lucide-react";
-import { firmProfile } from "@/data/businessAssets";
+import { firmProfile } from "@/content/businessAssets";
 import {
   ease,
   revealItem,

@@ -11,7 +11,7 @@ import HomeInsights from "@/components/insights/HomeInsights";
 import MandatesStream from "./MandatesStream";
 import OfficesAndCta from "./OfficesAndCta";
 import Footer from "@/components/layout/Footer";
-import { InsightPost } from "@/lib/getInsights";
+import type { InsightPost } from "@/types/publication";
 
 interface HomePageProps {
   posts: InsightPost[];

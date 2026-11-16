@@ -6,7 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-import { teamMembers, type TeamMember } from "@/data/team";
+import type { TeamMember } from "@/types/team";
 
 const roles = ["All", "Leadership", "Counsel", "Associates", "Operations"] as const;
 
@@ -123,7 +123,7 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
   );
 }
 
-export default function TeamPage() {
+export default function TeamPage({ members: teamMembers }: { members: TeamMember[] }) {
   const [activeRole, setActiveRole] = useState<(typeof roles)[number]>("All");
 
   const filteredMembers = teamMembers

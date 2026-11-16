@@ -2,18 +2,11 @@
 
 import { useState, useMemo, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type InsightPost = {
-  id: string;
-  title: string;
-  date: string;
-  excerpt: string;
-  href: string;
-  category: string;
-  image?: string;
-};
+import type { InsightPost } from "@/types/publication";
 
 interface InsightsListingProps {
   initialPosts: InsightPost[];
@@ -120,11 +113,12 @@ export default function InsightsListing({ initialPosts }: InsightsListingProps) 
                   >
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand/5">
                       {post.image ? (
-                        <img
+                        <Image
                           src={post.image}
-                          alt={post.title}
+                          alt={post.imageAlt || ""}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           decoding="async"
                         />
                       ) : (

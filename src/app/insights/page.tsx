@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import InsightsListing from "@/components/insights/InsightsListing";
-import { getInsights } from "@/lib/getInsights";
+import { getPublications } from "@/server/repositories/publications";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function InsightsPage() {
-  const { posts } = await getInsights();
+  const posts = await getPublications();
 
   return (
     <main className="bg-white">

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { homepageContent } from "@/data/homepage";
+import { homepageContent } from "@/content/home";
 
 export const {
   coreCompetencies,

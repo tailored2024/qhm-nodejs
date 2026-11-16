@@ -27,12 +27,18 @@ import {
 
 const practiceIcons: Record<string, React.ElementType> = {
   "Corporate & Commercial": Building2,
+  "Foreign Direct Investment (FDI)": Globe,
   "Joint Ventures & FDI": Globe,
   "Regulatory Advisory": Shield,
+  "Dispute Resolution & Litigation": Gavel,
   "Dispute Resolution": Gavel,
+  "Employment & Executive Matters": Users,
   "Employment & Labor": Users,
+  "Intellectual Property & Technology": Lightbulb,
   "IP & Technology": Lightbulb,
+  "Tax, Zakat & Transfer Pricing": Calculator,
   "Tax & Zakat": Calculator,
+  "Sector-Specific Advisory": Zap,
   "Sector Advisory": Zap,
 };
 

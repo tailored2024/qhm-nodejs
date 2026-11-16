@@ -27,49 +27,49 @@ const expertiseItems: ExpertiseItem[] = [
     title: "Corporate & Commercial",
     icon: Building2,
     description:
-      "Structuring complex corporate entities, corporate restructurings, joint ventures, constitutional documents, governance frameworks, and commercial contracts.",
+      "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
   },
   {
-    title: "Joint Ventures & FDI",
+    title: "Foreign Direct Investment (FDI)",
     icon: Globe,
     description:
-      "Navigating Saudi foreign investment regulations, strategic partnerships, and seamless market entry for international corporations.",
+      "Advising foreign investors on Saudi market entry, licensing, MISA approvals, regional headquarters setup, and restructuring.",
   },
   {
     title: "Regulatory Advisory & Public Policy",
     icon: Shield,
     description:
-      "High-level regulatory compliance, competition clearance, and legislative advisory for public ministries and private sector leaders.",
+      "Advising and representing clients before key Saudi authorities, ensuring regulatory certainty within evolving legal frameworks.",
   },
   {
     title: "Dispute Resolution & Litigation",
     icon: Gavel,
     description:
-      "Strategic representation in commercial disputes, judicial litigation, regulatory investigations, and domestic and international arbitration.",
+      "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
   },
   {
-    title: "Employment & Labor Law",
+    title: "Employment & Executive Matters",
     icon: Users,
     description:
-      "Advising corporate employers on executive contracts, Saudization mandates, labor disputes, and strategic workforce restructuring.",
+      "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
   },
   {
     title: "Intellectual Property & Technology",
     icon: Lightbulb,
     description:
-      "Safeguarding intellectual property assets, technology contracts, data privacy governance, and digital platform compliance.",
+      "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
   },
   {
     title: "Tax, Zakat & Transfer Pricing",
     icon: Landmark,
     description:
-      "Specialized defense in ZATCA assessments, tax audits, transfer pricing documentation, and tax dispute tribunal litigation.",
+      "ZATCA advisory, objection procedures, committee representation, settlement negotiations, and transfer pricing advisory.",
   },
   {
-    title: "Sector Advisory & Regulated Industries",
+    title: "Sector-Specific Advisory",
     icon: Zap,
     description:
-      "Specialized regulatory, operational, and commercial counsel across critical Vision 2030 economic sectors.",
+      "Strategic counsel across Energy & Infrastructure, Healthcare & Pharmaceuticals, Aviation & Maritime, Real Estate & Development, and IT & Telecom.",
   },
 ];
 
@@ -216,7 +216,7 @@ export default function ExpertisePage() {
               </motion.h2>
             </div>
             <motion.p variants={blurItem} className="max-w-2xl text-sm leading-7 text-black/52 lg:justify-self-end">
-              A broad Saudi legal platform for corporate workstreams that move across transactions, licensing, people, technology, regulated sectors, and disputes.
+              Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.
             </motion.p>
           </div>
 

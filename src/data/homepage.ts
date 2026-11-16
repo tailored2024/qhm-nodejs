@@ -63,49 +63,57 @@ export const coreCompetencies = [
 export const practiceAreas = [
   {
     title: "Corporate & Commercial",
-    description: "Structuring complex entities and cross-border transactions.",
+    description:
+      "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/corporate-commercial-qhm.webp",
   },
   {
-    title: "Joint Ventures & FDI",
-    description: "Navigating foreign investment laws and strategic partnerships.",
+    title: "Foreign Direct Investment (FDI)",
+    description:
+      "Advising foreign investors on Saudi market entry, licensing, MISA approvals, regional headquarters setup, and restructuring.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/joint-ventures-fdi-qhm.webp",
   },
   {
     title: "Regulatory Advisory",
-    description: "Compliance with Capital Market Authority and gov regulations.",
+    description:
+      "Advising and representing clients before key Saudi authorities, ensuring regulatory certainty within evolving legal frameworks.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/regulatory-advisory-qhm.webp",
   },
   {
-    title: "Dispute Resolution",
-    description: "Commercial arbitration and high-stakes litigation.",
+    title: "Dispute Resolution & Litigation",
+    description:
+      "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/dispute-resolution-qhm.webp",
   },
   {
-    title: "Employment & Labor",
-    description: "Workforce structuring and executive contracts.",
+    title: "Employment & Executive Matters",
+    description:
+      "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/employment-labor-qhm.webp",
   },
   {
-    title: "IP & Technology",
-    description: "Protecting intellectual assets and data privacy.",
+    title: "Intellectual Property & Technology",
+    description:
+      "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/ip-technology-qhm.webp",
   },
   {
-    title: "Tax & Zakat",
-    description: "Corporate tax planning and disputes.",
+    title: "Tax, Zakat & Transfer Pricing",
+    description:
+      "ZATCA advisory, objection procedures, committee representation, settlement negotiations, and transfer pricing advisory.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/tax-zakat-qhm.webp",
   },
   {
-    title: "Sector Advisory",
-    description: "Specialized counsel for Energy, Health, and Real Estate.",
+    title: "Sector-Specific Advisory",
+    description:
+      "Strategic counsel across Energy & Infrastructure, Healthcare & Pharmaceuticals, Aviation & Maritime, Real Estate, and IT & Telecom.",
     href: "/expertise",
     image: "/assets/PracticeAreasSection/sector-advisory-qhm.webp",
   },

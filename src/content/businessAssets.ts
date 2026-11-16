@@ -1,6 +1,6 @@
 export const firmProfile = {
   cover: "/assets/profile/ProfileCover.PNG",
-  pdf: "/assets/profile/QHM - Firm Profilev2.pdf",
+  pdf: "/assets/profile/QHM_Profile.pdf",
   title: "Latest Firm Profile",
   cta: "Download Our Latest Firm Profile",
 };

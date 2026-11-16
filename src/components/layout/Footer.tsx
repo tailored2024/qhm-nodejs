@@ -63,7 +63,7 @@ export default function Footer() {
           <Link href="/contact" className="text-white/75 hover:text-white transition-colors duration-300">
             Contact Us
           </Link>
-          <a href="/assets/profile/QHM - Firm Profilev2.pdf" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white transition-colors duration-300">
+          <a href="/assets/profile/QHM_Profile.pdf" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-white transition-colors duration-300">
             Company Profile (PDF)
           </a>
           {footer.socialLinks.map((social) => (

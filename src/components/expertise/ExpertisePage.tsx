@@ -20,7 +20,6 @@ type ExpertiseItem = {
   title: string;
   icon: React.ElementType;
   description: string;
-  points: string[];
 };
 
 const expertiseItems: ExpertiseItem[] = [
@@ -29,96 +28,48 @@ const expertiseItems: ExpertiseItem[] = [
     icon: Building2,
     description:
       "Structuring complex corporate entities, corporate restructurings, joint ventures, constitutional documents, governance frameworks, and commercial contracts.",
-    points: [
-      "Corporate structuring, reorganizations & M&A",
-      "Bilingual shareholder agreements & constitutional documents",
-      "Corporate governance, board resolutions & authority matrices",
-      "Commercial contracts, agency & distribution agreements",
-    ],
   },
   {
     title: "Joint Ventures & FDI",
     icon: Globe,
     description:
       "Navigating Saudi foreign investment regulations, strategic partnerships, and seamless market entry for international corporations.",
-    points: [
-      "MISA foreign investment licensing & approvals",
-      "Regional Headquarters (RHQ) setup & compliance",
-      "Cross-border joint ventures & consortium structuring",
-      "Regulatory incentives & market-entry advisory",
-    ],
   },
   {
     title: "Regulatory Advisory & Public Policy",
     icon: Shield,
     description:
       "High-level regulatory compliance, competition clearance, and legislative advisory for public ministries and private sector leaders.",
-    points: [
-      "Capital Market Authority (CMA) compliance & fund setup",
-      "General Authority for Competition (GAC) merger control",
-      "Drafting executive regulations & legislative studies for ministries",
-      "Government Tenders & Procurement Law advisory",
-    ],
   },
   {
     title: "Dispute Resolution & Litigation",
     icon: Gavel,
     description:
       "Strategic representation in commercial disputes, judicial litigation, regulatory investigations, and domestic and international arbitration.",
-    points: [
-      "Commercial Courts & Board of Grievances litigation",
-      "ZATCA tax, customs & banking dispute committees",
-      "Securities disputes before CRSD & ACRSD committees",
-      "Commercial arbitration under SCCA and international rules",
-    ],
   },
   {
     title: "Employment & Labor Law",
     icon: Users,
     description:
       "Advising corporate employers on executive contracts, Saudization mandates, labor disputes, and strategic workforce restructuring.",
-    points: [
-      "Executive employment contracts & non-compete agreements",
-      "Saudi Labor Law compliance & internal work regulations",
-      "Nitaqat / Saudization strategic workforce planning",
-      "Labor dispute defense & amicable settlements",
-    ],
   },
   {
     title: "Intellectual Property & Technology",
     icon: Lightbulb,
     description:
       "Safeguarding intellectual property assets, technology contracts, data privacy governance, and digital platform compliance.",
-    points: [
-      "Trademark & copyright protection, licensing & enforcement",
-      "Personal Data Protection Law (PDPL) & privacy compliance",
-      "Software licensing, IT procurement & cloud contracts",
-      "Entertainment, film & media rights clearances",
-    ],
   },
   {
     title: "Tax, Zakat & Transfer Pricing",
     icon: Landmark,
     description:
       "Specialized defense in ZATCA assessments, tax audits, transfer pricing documentation, and tax dispute tribunal litigation.",
-    points: [
-      "ZATCA assessment objection procedures & appeals",
-      "Representation before Committees for Resolution of Tax Violations",
-      "Withholding tax, VAT & transfer pricing advisory",
-      "Tax dispute settlement & penalty mitigation",
-    ],
   },
   {
     title: "Sector Advisory & Regulated Industries",
     icon: Zap,
     description:
       "Specialized regulatory, operational, and commercial counsel across critical Vision 2030 economic sectors.",
-    points: [
-      "Aviation regulatory (GACA) licensing & aircraft leasing",
-      "Energy, renewables & PPP infrastructure concessions",
-      "Healthcare licensing, pharma regulations & malpractice",
-      "Real estate development, off-plan sales & usufruct",
-    ],
   },
 ];
 
@@ -308,7 +259,7 @@ export default function ExpertisePage() {
                     </h3>
                   </div>
 
-                  {/* Mobile View: Collapsed by default ("just the title in short"), expands to show description and bullet points */}
+                  {/* Mobile View: Collapsed by default ("just the title in short"), expands to show description */}
                   <div
                     className={`grid transition-all duration-300 ease-in-out md:hidden ${
                       isExpanded
@@ -323,19 +274,6 @@ export default function ExpertisePage() {
                             {area.description}
                           </p>
                         )}
-                        {area.points && area.points.length > 0 && (
-                          <ul className="mt-3.5 space-y-2.5">
-                            {area.points.map((point) => (
-                              <li
-                                key={point}
-                                className="flex items-start gap-2.5 text-xs sm:text-sm leading-5 text-black/75"
-                              >
-                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-brand" />
-                                <span>{point}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -346,19 +284,6 @@ export default function ExpertisePage() {
                       <p className="mt-5 text-sm leading-7 text-black/52 transition-colors group-hover:text-white/62">
                         {area.description}
                       </p>
-                    )}
-                    {area.points && area.points.length > 0 && (
-                      <ul className="mt-6 space-y-3">
-                        {area.points.map((point) => (
-                          <li
-                            key={point}
-                            className="flex items-start gap-3 text-sm leading-6 text-black/58 transition-colors group-hover:text-white/68"
-                          >
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-brand transition-colors group-hover:bg-white/70" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
                     )}
                   </div>
                 </motion.article>

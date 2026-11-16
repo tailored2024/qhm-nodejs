@@ -1,23 +1,26 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Building2,
+  ChevronDown,
   Gavel,
   Globe,
   Landmark,
   Lightbulb,
+  Shield,
   Users,
+  Zap,
 } from "lucide-react";
 
 type ExpertiseItem = {
   title: string;
   icon: React.ElementType;
-  description?: string;
-  points?: string[];
+  description: string;
+  points: string[];
 };
 
 const expertiseItems: ExpertiseItem[] = [
@@ -25,55 +28,126 @@ const expertiseItems: ExpertiseItem[] = [
     title: "Corporate & Commercial",
     icon: Building2,
     description:
-      "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
-  },
-  {
-    title: "Foreign Direct Investment (FDI)",
-    icon: Globe,
+      "Structuring complex corporate entities, corporate restructurings, joint ventures, constitutional documents, governance frameworks, and commercial contracts.",
     points: [
-      "MISA Licensing & Regulatory Approvals",
-      "Regional Headquarters (RHQ) Setup",
-      "Regulatory Incentives & Market Entry",
+      "Corporate structuring, reorganizations & M&A",
+      "Bilingual shareholder agreements & constitutional documents",
+      "Corporate governance, board resolutions & authority matrices",
+      "Commercial contracts, agency & distribution agreements",
     ],
   },
   {
-    title: "Tax, Zakat & Transfer Pricing",
-    icon: Landmark,
+    title: "Joint Ventures & FDI",
+    icon: Globe,
+    description:
+      "Navigating Saudi foreign investment regulations, strategic partnerships, and seamless market entry for international corporations.",
     points: [
-      "ZATCA advisory & objection procedures",
-      "Representation before Committees for Resolution of Tax Violations and Disputes",
-      "Settlement negotiations & transfer pricing",
+      "MISA foreign investment licensing & approvals",
+      "Regional Headquarters (RHQ) setup & compliance",
+      "Cross-border joint ventures & consortium structuring",
+      "Regulatory incentives & market-entry advisory",
+    ],
+  },
+  {
+    title: "Regulatory Advisory & Public Policy",
+    icon: Shield,
+    description:
+      "High-level regulatory compliance, competition clearance, and legislative advisory for public ministries and private sector leaders.",
+    points: [
+      "Capital Market Authority (CMA) compliance & fund setup",
+      "General Authority for Competition (GAC) merger control",
+      "Drafting executive regulations & legislative studies for ministries",
+      "Government Tenders & Procurement Law advisory",
     ],
   },
   {
     title: "Dispute Resolution & Litigation",
     icon: Gavel,
     description:
-      "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
+      "Strategic representation in commercial disputes, judicial litigation, regulatory investigations, and domestic and international arbitration.",
+    points: [
+      "Commercial Courts & Board of Grievances litigation",
+      "ZATCA tax, customs & banking dispute committees",
+      "Securities disputes before CRSD & ACRSD committees",
+      "Commercial arbitration under SCCA and international rules",
+    ],
   },
   {
-    title: "Employment & Executive Matters",
+    title: "Employment & Labor Law",
     icon: Users,
     description:
-      "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
+      "Advising corporate employers on executive contracts, Saudization mandates, labor disputes, and strategic workforce restructuring.",
+    points: [
+      "Executive employment contracts & non-compete agreements",
+      "Saudi Labor Law compliance & internal work regulations",
+      "Nitaqat / Saudization strategic workforce planning",
+      "Labor dispute defense & amicable settlements",
+    ],
   },
   {
     title: "Intellectual Property & Technology",
     icon: Lightbulb,
     description:
-      "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
+      "Safeguarding intellectual property assets, technology contracts, data privacy governance, and digital platform compliance.",
+    points: [
+      "Trademark & copyright protection, licensing & enforcement",
+      "Personal Data Protection Law (PDPL) & privacy compliance",
+      "Software licensing, IT procurement & cloud contracts",
+      "Entertainment, film & media rights clearances",
+    ],
+  },
+  {
+    title: "Tax, Zakat & Transfer Pricing",
+    icon: Landmark,
+    description:
+      "Specialized defense in ZATCA assessments, tax audits, transfer pricing documentation, and tax dispute tribunal litigation.",
+    points: [
+      "ZATCA assessment objection procedures & appeals",
+      "Representation before Committees for Resolution of Tax Violations",
+      "Withholding tax, VAT & transfer pricing advisory",
+      "Tax dispute settlement & penalty mitigation",
+    ],
+  },
+  {
+    title: "Sector Advisory & Regulated Industries",
+    icon: Zap,
+    description:
+      "Specialized regulatory, operational, and commercial counsel across critical Vision 2030 economic sectors.",
+    points: [
+      "Aviation regulatory (GACA) licensing & aircraft leasing",
+      "Energy, renewables & PPP infrastructure concessions",
+      "Healthcare licensing, pharma regulations & malpractice",
+      "Real estate development, off-plan sales & usufruct",
+    ],
   },
 ];
 
 const sectorItems = [
   {
     title: "Energy & Infrastructure",
-    description: "Vision 2030 Lead Sector - Power, renewables, and large-scale infrastructure projects.",
+    description:
+      "Vision 2030 Lead Sector - Power, renewables, conventional energy, and large-scale public-private infrastructure projects.",
   },
-  { title: "Healthcare & Pharmaceuticals" },
-  { title: "Aviation & Maritime" },
-  { title: "Real Estate & Development" },
-  { title: "IT & Telecom" },
+  {
+    title: "Healthcare & Pharmaceuticals",
+    description:
+      "Regulatory compliance for healthcare providers, pharmaceutical licensing, health tech, and medical practice regulations.",
+  },
+  {
+    title: "Aviation & Maritime",
+    description:
+      "GACA regulatory compliance, commercial aircraft leasing, maritime logistics, transport concessions, and port operations.",
+  },
+  {
+    title: "Real Estate & Development",
+    description:
+      "Mega-project advisory, off-plan sales licensing (Wafi), zoning, FIDIC construction contracts, and property disputes.",
+  },
+  {
+    title: "IT, Media & Telecommunications",
+    description:
+      "CST regulatory compliance, cloud computing frameworks, telecommunications licensing, cyber governance, and media rights.",
+  },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -142,6 +216,7 @@ function ScrollTextReveal({ children }: { children: string }) {
 }
 
 export default function ExpertisePage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const heroRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -197,6 +272,7 @@ export default function ExpertisePage() {
           <motion.div variants={container} className="grid gap-px bg-brand md:grid-cols-2 xl:grid-cols-3">
             {expertiseItems.map((area, index) => {
               const Icon = area.icon;
+              const isOpen = openIndex === index;
 
               return (
                 <motion.article
@@ -204,21 +280,116 @@ export default function ExpertisePage() {
                   variants={blurItem}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3, ease }}
-                  className="group flex min-h-[340px] flex-col bg-white p-6 text-left transition-colors hover:bg-brand hover:text-white sm:p-7"
+                  className={`group flex flex-col bg-white p-6 text-left transition-colors sm:p-7 md:min-h-[340px] ${
+                    isOpen
+                      ? "bg-brand text-white md:bg-white md:text-brand"
+                      : "hover:bg-brand hover:text-white"
+                  }`}
                 >
-                  <div className="flex items-start justify-between gap-5">
-                    <div className="flex h-12 w-12 items-center justify-center border border-brand text-brand transition-colors group-hover:border-white/20 group-hover:text-white">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() =>
+                      setOpenIndex((prev) => (prev === index ? null : index))
+                    }
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setOpenIndex((prev) =>
+                          prev === index ? null : index
+                        );
+                      }
+                    }}
+                    className="flex w-full cursor-pointer md:cursor-default items-start justify-between gap-5 select-none"
+                  >
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center border transition-colors ${
+                        isOpen
+                          ? "border-white/20 text-white md:border-brand md:text-brand md:group-hover:border-white/20 md:group-hover:text-white"
+                          : "border-brand text-brand group-hover:border-white/20 group-hover:text-white"
+                      }`}
+                    >
                       <Icon size={21} strokeWidth={1.5} />
                     </div>
-                    <span className="font-mono text-xs text-brand transition-colors group-hover:text-white/42">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`font-mono text-xs transition-colors ${
+                          isOpen
+                            ? "text-white/60 md:text-brand md:group-hover:text-white/42"
+                            : "text-brand group-hover:text-white/42"
+                        }`}
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-300 md:hidden ${
+                          isOpen
+                            ? "rotate-180 text-white"
+                            : "text-brand group-hover:text-white"
+                        }`}
+                      />
+                    </div>
                   </div>
 
-                  <div className="mt-12">
-                    <h3 className="text-3xl font-light leading-tight text-brand transition-colors group-hover:text-white">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() =>
+                      setOpenIndex((prev) => (prev === index ? null : index))
+                    }
+                    className="mt-6 cursor-pointer md:mt-12 md:cursor-default"
+                  >
+                    <h3
+                      className={`text-2xl sm:text-3xl font-light leading-tight transition-colors ${
+                        isOpen
+                          ? "text-white md:text-brand md:group-hover:text-white"
+                          : "text-brand group-hover:text-white"
+                      }`}
+                    >
                       {area.title}
                     </h3>
+                  </div>
+
+                  {/* Mobile Animated Accordion */}
+                  <div className="md:hidden">
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="mobile-content"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.35, ease }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-4 border-t border-white/15 pt-4">
+                            {area.description && (
+                              <p className="text-sm leading-6 text-white/80">
+                                {area.description}
+                              </p>
+                            )}
+                            {area.points && (
+                              <ul className="mt-4 space-y-2.5">
+                                {area.points.map((point) => (
+                                  <li
+                                    key={point}
+                                    className="flex items-start gap-2.5 text-xs sm:text-sm leading-5 text-white/90"
+                                  >
+                                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
+                                    <span>{point}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Desktop View: Always Visible in Grid */}
+                  <div className="hidden md:block">
                     {area.description && (
                       <p className="mt-5 text-sm leading-7 text-black/52 transition-colors group-hover:text-white/62">
                         {area.description}
@@ -227,7 +398,10 @@ export default function ExpertisePage() {
                     {area.points && (
                       <ul className="mt-6 space-y-3">
                         {area.points.map((point) => (
-                          <li key={point} className="flex gap-3 text-sm leading-6 text-black/58 transition-colors group-hover:text-white/68">
+                          <li
+                            key={point}
+                            className="flex gap-3 text-sm leading-6 text-black/58 transition-colors group-hover:text-white/68"
+                          >
                             <span className="mt-2 h-1 w-1 shrink-0 bg-brand transition-colors group-hover:bg-white/70" />
                             <span>{point}</span>
                           </li>

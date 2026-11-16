@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Building2,
+  ChevronDown,
   Globe,
   Gavel,
   Lightbulb,
@@ -37,7 +38,8 @@ const practiceIcons: Record<string, React.ElementType> = {
 
 export default function ExpertiseExplorer() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeArea = practiceAreas[activeIndex];
+  const safeActiveIndex = activeIndex >= 0 ? activeIndex : 0;
+  const activeArea = practiceAreas[safeActiveIndex] ?? practiceAreas[0];
   const ActiveIcon = practiceIcons[activeArea.title] ?? Scale;
 
   return (
@@ -69,9 +71,10 @@ export default function ExpertiseExplorer() {
         </div>
 
         <div className="grid gap-px bg-brand lg:grid-cols-[0.95fr_1.05fr]">
+          {/* Desktop Preview Panel (hidden on mobile, cards expand inline on mobile) */}
           <motion.div
             variants={revealItem}
-            className="relative overflow-hidden p-8 text-white sm:p-10 lg:min-h-[560px] lg:p-12 bg-brand"
+            className="relative hidden lg:flex flex-col justify-between overflow-hidden p-8 text-white sm:p-10 lg:min-h-[560px] lg:p-12 bg-brand"
           >
             <AnimatePresence mode="wait">
               {activeArea.image ? (
@@ -104,7 +107,7 @@ export default function ExpertiseExplorer() {
                       <ActiveIcon size={24} strokeWidth={1.5} />
                     </div>
                     <span className="font-mono text-sm text-white/40">
-                      {String(activeIndex + 1).padStart(2, "0")}
+                      {String(safeActiveIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <h3 className="mt-14 max-w-xl text-5xl font-light leading-[0.98] sm:text-6xl">
@@ -112,11 +115,24 @@ export default function ExpertiseExplorer() {
                   </h3>
                 </div>
 
-                <div className="mt-16">
-                  <p className="max-w-xl text-base leading-8 text-white/80">
+                <div className="mt-12">
+                  <p className="max-w-xl text-base leading-7 text-white/80">
                     {activeArea.description}
                   </p>
-                  <div className="mt-10">
+                  {activeArea.points && activeArea.points.length > 0 && (
+                    <ul className="mt-6 space-y-2.5">
+                      {activeArea.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-start gap-3 text-sm text-white/85"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-white" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="mt-8">
                     <PremiumButton href={activeArea.href} inverse>
                       Explore Practice
                     </PremiumButton>
@@ -126,67 +142,136 @@ export default function ExpertiseExplorer() {
             </AnimatePresence>
           </motion.div>
 
+          {/* Cards Grid */}
           <div className="grid gap-px bg-brand sm:grid-cols-2">
             {practiceAreas.map((area, i) => {
               const Icon = practiceIcons[area.title] ?? Scale;
               const isActive = activeIndex === i;
               return (
-                <motion.button
+                <motion.div
                   key={area.title}
-                  type="button"
                   custom={i}
                   variants={revealItem}
                   whileHover={{ y: -4 }}
-                  whileTap={{ scale: 0.985 }}
                   transition={{ duration: 0.3, ease }}
-                  onMouseEnter={() => setActiveIndex(i)}
-                  onClick={() => setActiveIndex(i)}
-                  className={`group flex min-h-[220px] flex-col justify-between p-6 text-left transition-colors sm:p-7 ${
+                  className={`group flex flex-col justify-between p-6 text-left transition-colors sm:p-7 ${
                     isActive
                       ? "bg-gray-850 text-white"
                       : "bg-white text-brand hover:bg-brand hover:text-white"
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-5">
-                    <Icon
-                      size={22}
-                      strokeWidth={1.5}
-                      className={
-                        isActive
-                          ? "text-white"
-                          : "text-brand transition-colors group-hover:text-white"
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      setActiveIndex((prev) => (prev === i ? -1 : i));
+                    }}
+                    onMouseEnter={() => {
+                      if (
+                        typeof window !== "undefined" &&
+                        window.innerWidth >= 1024
+                      ) {
+                        setActiveIndex(i);
                       }
-                    />
-                    <span
-                      className={
-                        isActive
-                          ? "font-mono text-xs text-white/40"
-                          : "font-mono text-xs text-brand transition-colors group-hover:text-white/40"
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveIndex((prev) => (prev === i ? -1 : i));
                       }
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    }}
+                    className="flex w-full cursor-pointer flex-col justify-between select-none"
+                  >
+                    <div className="flex items-start justify-between gap-5">
+                      <Icon
+                        size={22}
+                        strokeWidth={1.5}
+                        className={
+                          isActive
+                            ? "text-white"
+                            : "text-brand transition-colors group-hover:text-white"
+                        }
+                      />
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={
+                            isActive
+                              ? "font-mono text-xs text-white/40"
+                              : "font-mono text-xs text-brand transition-colors group-hover:text-white/40"
+                          }
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-300 lg:hidden ${
+                            isActive
+                              ? "rotate-180 text-white"
+                              : "text-brand group-hover:text-white"
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-8 lg:mt-12">
+                      <h3
+                        className={
+                          isActive
+                            ? "text-2xl font-light leading-tight text-white"
+                            : "text-2xl font-light leading-tight text-brand transition-colors group-hover:text-white"
+                        }
+                      >
+                        {area.title}
+                      </h3>
+                      <ArrowRight
+                        size={16}
+                        className={`hidden lg:block ${
+                          isActive
+                            ? "mt-6 text-white/70"
+                            : "mt-6 -translate-x-2 text-brand transition-all group-hover:translate-x-0 group-hover:text-white/70"
+                        }`}
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <h3
-                      className={
-                        isActive
-                          ? "text-2xl font-light leading-tight text-white"
-                          : "text-2xl font-light leading-tight text-brand transition-colors group-hover:text-white"
-                      }
-                    >
-                      {area.title}
-                    </h3>
-                    <ArrowRight
-                      size={16}
-                      className={
-                        isActive
-                          ? "mt-6 text-white/70"
-                          : "mt-6 -translate-x-2 text-brand transition-all group-hover:translate-x-0 group-hover:text-white/70"
-                      }
-                    />
-                  </div>
-                </motion.button>
+
+                  {/* Mobile Accordion Details (inline under card title on mobile) */}
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        key="mobile-details"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.35, ease }}
+                        className="overflow-hidden lg:hidden"
+                      >
+                        <div className="mt-5 border-t border-white/15 pt-5">
+                          <p className="text-sm leading-6 text-white/80">
+                            {area.description}
+                          </p>
+                          {area.points && area.points.length > 0 && (
+                            <ul className="mt-4 space-y-2">
+                              {area.points.map((point) => (
+                                <li
+                                  key={point}
+                                  className="flex items-start gap-2.5 text-xs sm:text-sm text-white/85"
+                                >
+                                  <span className="mt-1.5 h-1 w-1 shrink-0 bg-white" />
+                                  <span>{point}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          <div className="mt-6">
+                            <PremiumButton href={area.href} inverse>
+                              Explore Practice
+                            </PremiumButton>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
           </div>

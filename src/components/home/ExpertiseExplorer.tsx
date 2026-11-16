@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   Building2,
-  ChevronDown,
   Globe,
   Gavel,
   Lightbulb,
@@ -186,18 +185,9 @@ export default function ExpertiseExplorer() {
                   variants={revealItem}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3, ease }}
-                  className={`group flex flex-col justify-between p-6 text-left transition-colors sm:p-7 ${
-                    isActive
-                      ? "bg-gray-850 text-white"
-                      : "bg-white text-brand hover:bg-brand hover:text-white"
-                  }`}
                 >
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => {
-                      setActiveIndex((prev) => (prev === i ? -1 : i));
-                    }}
+                  <Link
+                    href={area.href}
                     onMouseEnter={() => {
                       if (
                         typeof window !== "undefined" &&
@@ -206,13 +196,11 @@ export default function ExpertiseExplorer() {
                         setActiveIndex(i);
                       }
                     }}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setActiveIndex((prev) => (prev === i ? -1 : i));
-                      }
-                    }}
-                    className="flex w-full cursor-pointer flex-col justify-between select-none"
+                    className={`group flex h-full flex-col justify-between p-6 text-left transition-colors sm:p-7 ${
+                      isActive
+                        ? "bg-gray-850 text-white"
+                        : "bg-white text-brand hover:bg-brand hover:text-white"
+                    }`}
                   >
                     <div className="flex items-start justify-between gap-5">
                       <Icon
@@ -234,13 +222,9 @@ export default function ExpertiseExplorer() {
                         >
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <ChevronDown
+                        <ArrowRight
                           size={16}
-                          className={`transition-transform duration-300 lg:hidden ${
-                            isActive
-                              ? "rotate-180 text-white"
-                              : "text-brand group-hover:text-white"
-                          }`}
+                          className="text-brand transition-transform group-hover:translate-x-1 group-hover:text-white lg:hidden"
                         />
                       </div>
                     </div>
@@ -264,62 +248,7 @@ export default function ExpertiseExplorer() {
                         }`}
                       />
                     </div>
-                  </div>
-
-                  {/* Mobile Inline Expansion (shows details right under card; zero scrolling up needed) */}
-                  {isActive && (
-                    <div className="mt-4 border-t border-white/15 pt-4 lg:hidden">
-                      {area.image && (
-                        <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden bg-white/5">
-                          <Image
-                            src={area.image}
-                            alt={area.title}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                        </div>
-                      )}
-                      <p className="text-sm leading-relaxed text-white/80">
-                        {area.description}
-                      </p>
-                      {area.points && area.points.length > 0 && (
-                        <ul className="mt-3 space-y-2">
-                          {area.points.map((point) => {
-                            const sectorHref = sectorSlugMap[point];
-                            return (
-                              <li
-                                key={point}
-                                className="flex items-start gap-2 text-xs sm:text-sm text-white/90"
-                              >
-                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-white" />
-                                {sectorHref ? (
-                                  <Link
-                                    href={sectorHref}
-                                    className="group/link inline-flex items-center gap-1 text-white/95 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
-                                  >
-                                    <span>{point}</span>
-                                    <ArrowRight
-                                      size={11}
-                                      className="transition-transform group-hover/link:translate-x-0.5"
-                                    />
-                                  </Link>
-                                ) : (
-                                  <span>{point}</span>
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      )}
-                      <div className="mt-5">
-                        <PremiumButton href={area.href} inverse>
-                          Explore Practice
-                        </PremiumButton>
-                      </div>
-                    </div>
-                  )}
+                  </Link>
                 </motion.div>
               );
             })}

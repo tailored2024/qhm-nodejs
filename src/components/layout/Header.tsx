@@ -52,6 +52,8 @@ export default function Header() {
                 alt="QHM Law Firm"
                 width={144}
                 height={88}
+                priority
+                loading="eager"
                 className={`h-auto w-full object-contain transition-opacity duration-500 ${
                   isTransparent ? "opacity-0" : "opacity-100"
                 }`}
@@ -61,6 +63,8 @@ export default function Header() {
                 alt="QHM Law Firm"
                 width={144}
                 height={88}
+                priority
+                loading="eager"
                 className={`absolute inset-0 h-auto w-full object-contain transition-opacity duration-500 ${
                   isTransparent ? "opacity-100" : "opacity-0"
                 }`}

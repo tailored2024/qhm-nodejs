@@ -160,10 +160,10 @@ export default function ContactPage() {
                   </span>
                   <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
-                <a href="mailto:manager@qhmlawfirm.com" className="group flex items-center justify-between gap-5 text-white/70 transition-colors hover:text-white">
+                <a href="mailto:qhm@qhmlawfirm.com" className="group flex items-center justify-between gap-5 text-white/70 transition-colors hover:text-white">
                   <span className="inline-flex items-center gap-3 text-sm">
                     <Mail size={16} />
-                    manager@qhmlawfirm.com
+                    qhm@qhmlawfirm.com
                   </span>
                   <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>

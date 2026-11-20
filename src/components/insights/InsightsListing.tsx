@@ -123,7 +123,7 @@ export default function InsightsListing({ initialPosts }: InsightsListingProps) 
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center bg-brand/5 text-brand">
-                          <span className="text-xs font-semibold uppercase tracking-wider">QHM Insight</span>
+                          <span className="text-xs font-semibold uppercase tracking-wider">Firm Insight</span>
                         </div>
                       )}
                       <div className="absolute top-3 left-3 bg-brand px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">

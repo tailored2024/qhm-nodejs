@@ -1,14 +1,14 @@
 export const aboutData = {
   hero: {
     eyebrow: "The Firm",
-    heading: "About QHM",
+    heading: "About Our Firm",
     subheading:
-      "Qaisar Hamed Metawea Law Firm (QHM) is a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors.",
+      "We are a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors.",
   },
   intro: {
-    label: "About QHM",
+    label: "About Us",
     heading: "Strategic Advisory Rather Than Reactive Legal Support",
-    body: "Qaisar Hamed Metawea Law Firm (QHM) is a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors.",
+    body: "We are a Saudi corporate law firm headquartered in Jeddah with a strong presence in Riyadh, advising multinational companies and large enterprises across critical sectors.",
     subtext:
       "Our practice is built on strategic advisory rather than reactive legal support. We operate with a partner-led model, ensuring senior oversight across all mandates.",
   },

@@ -50,14 +50,14 @@ export const practiceAreas = [
     title: "Corporate & Commercial",
     description:
       "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
-    href: "/expertise/corporate-and-commercial",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/corporate-commercial-qhm.webp",
   },
   {
     title: "Foreign Direct Investment (FDI)",
     description:
       "Advising foreign investors on Saudi market entry, licensing, MISA approvals, regional headquarters setup, and restructuring.",
-    href: "/expertise/foreign-direct-investment",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/joint-ventures-fdi-qhm.webp",
   },
   {
@@ -71,35 +71,35 @@ export const practiceAreas = [
       "Settlement negotiations",
       "Transfer pricing advisory",
     ],
-    href: "/expertise/tax-zakat-and-transfer-pricing",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/tax-zakat-qhm.webp",
   },
   {
     title: "Dispute Resolution & Litigation",
     description:
       "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
-    href: "/expertise/dispute-resolution-and-litigation",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/dispute-resolution-qhm.webp",
   },
   {
     title: "Employment & Executive Matters",
     description:
       "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
-    href: "/expertise/employment-and-executive-matters",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/employment-labor-qhm.webp",
   },
   {
     title: "Intellectual Property & Technology",
     description:
       "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
-    href: "/expertise/intellectual-property-and-technology",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/ip-technology-qhm.webp",
   },
   {
     title: "Government & Regulatory Engagement",
     description:
       "We advise and represent clients before key Saudi authorities, including ZATCA and dispute resolution committees, leveraging deep institutional knowledge.",
-    href: "/expertise/government-and-regulatory-engagement",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/regulatory-advisory-qhm.webp",
   },
   {
@@ -113,7 +113,7 @@ export const practiceAreas = [
       "Real Estate & Development",
       "IT & Telecom",
     ],
-    href: "/expertise/sector-specific-advisory",
+    href: "/expertise",
     image: "/assets/PracticeAreasSection/sector-advisory-qhm.webp",
   },
 ];
@@ -279,7 +279,7 @@ export const homepageContent = {
   managingPartner: {
     name: "Dr. Qaisar H. Metawea",
     role: "Founder and Managing Partner",
-    bio: "Qaisar Hamed Metawea Law Firm (QHM) is a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.",
+    bio: "We are a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.",
     extendedBio:
       "We deliver partner-led, commercially driven legal solutions designed to provide regulatory certainty, mitigate transactional risk, and accelerate speed to market.",
     cta: managingPartnerCta,
@@ -293,7 +293,7 @@ export const homepageContent = {
   footer: {
     firmName: "Qaisar H Metawea Law Firm.",
     description:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     offices: [jeddahOffice, riyadhOffice],
     links: footerLinks,
     socialLinks,

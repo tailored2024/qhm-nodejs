@@ -316,15 +316,7 @@ export default function ExpertisePage() {
                             ))}
                           </ul>
                         )}
-                        <div className="mt-4 pt-2">
-                          <Link
-                            href={`/expertise/${area.slug}`}
-                            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand underline decoration-brand/30 underline-offset-4"
-                          >
-                            <span>Explore Mandate</span>
-                            <ArrowRight size={13} />
-                          </Link>
-                        </div>
+                        <div className="mt-2" />
                       </div>
                     </div>
                   </div>
@@ -349,18 +341,6 @@ export default function ExpertisePage() {
                         ))}
                       </ul>
                     )}
-                    <div className="mt-8">
-                      <Link
-                        href={`/expertise/${area.slug}`}
-                        className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand transition-colors group-hover:text-white"
-                      >
-                        <span>Explore Mandate</span>
-                        <ArrowRight
-                          size={14}
-                          className="transition-transform group-hover:translate-x-1"
-                        />
-                      </Link>
-                    </div>
                   </div>
                 </motion.article>
               );

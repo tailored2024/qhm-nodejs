@@ -276,7 +276,7 @@ export default function SectorDetailPage({
               Corporate Advisory
             </span>
             <h2 className="mt-2 text-3xl font-light leading-tight sm:text-4xl">
-              Engage with QHM&apos;s Corporate Advisory Team
+              Engage with Our Corporate Advisory Team
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-white/80 sm:text-base">
               For multinational corporations, institutional clients, and

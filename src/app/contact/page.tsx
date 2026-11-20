@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ContactPage from "@/components/contact/ContactPage";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact QHM Law Firm for corporate legal counsel in Saudi Arabia.",
+  title: "Contact Us",
+  description: "Contact our team for corporate legal counsel in Saudi Arabia.",
   alternates: { canonical: "/contact" },
 };
 

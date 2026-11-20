@@ -115,7 +115,7 @@ export default function AboutPage() {
               {intro.label}
             </motion.p>
             <motion.h2 variants={reveal} className="mt-4 max-w-2xl text-4xl font-semibold uppercase leading-tight text-brand sm:text-5xl">
-              <ScrollTextReveal>{intro.heading || "About QHM"}</ScrollTextReveal>
+              <ScrollTextReveal>{intro.heading || "About Us"}</ScrollTextReveal>
             </motion.h2>
           </div>
 

@@ -56,7 +56,7 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>
             <h1 className="max-w-5xl text-6xl font-semibold uppercase leading-[0.9] text-brand sm:text-7xl lg:text-[8rem]">
-              <TextReveal>{"Contact\nQHM"}</TextReveal>
+              <TextReveal>{"Contact\nUs"}</TextReveal>
             </h1>
             <motion.div
               initial={{ scaleX: 0 }}
@@ -92,7 +92,7 @@ export default function ContactPage() {
             className="bg-white p-7 sm:p-10 lg:p-12"
           >
             <motion.h2 variants={reveal} className="text-4xl font-semibold uppercase leading-tight text-brand sm:text-5xl">
-              Engage with QHM&apos;s Corporate Advisory Team
+              Engage with Our Corporate Advisory Team
             </motion.h2>
             <motion.p variants={reveal} className="mt-5 max-w-2xl text-sm leading-7 text-black/55">
               We regularly collaborate with global firms to provide seamless local execution backed by deep regulatory insight and practical Saudi market experience. To discuss your requirements, please contact our Riyadh office directly or submit a confidential enquiry below.

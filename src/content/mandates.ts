@@ -11,7 +11,7 @@ export const mandatesData: MandateItem[] = [
     description:
       "Corporate structuring, joint ventures, shareholder agreements, governance frameworks, and cross-border commercial transactions.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "CORPORATE M&A (FLAGSHIP)",
@@ -55,7 +55,7 @@ export const mandatesData: MandateItem[] = [
     description:
       "Advising foreign investors on Saudi market entry, licensing, MISA approvals, regional headquarters setup, and restructuring.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "JOINT VENTURES & FOREIGN INVESTMENT",
@@ -99,7 +99,7 @@ export const mandatesData: MandateItem[] = [
       "Transfer pricing advisory",
     ],
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "DISPUTE RESOLUTION (ZATCA – CORE STRENGTH)",
@@ -129,7 +129,7 @@ export const mandatesData: MandateItem[] = [
     description:
       "Strategic representation in commercial disputes, tax litigation, regulatory investigations, and arbitration matters.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "HIGH-VALUE COMMERCIAL LITIGATION",
@@ -166,7 +166,7 @@ export const mandatesData: MandateItem[] = [
     description:
       "Advising corporates on executive contracts, Saudization compliance, workforce restructuring, and dispute mitigation.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "EMPLOYMENT & SAUDISATION",
@@ -189,7 +189,7 @@ export const mandatesData: MandateItem[] = [
     description:
       "IP protection, licensing agreements, technology transactions, and digital regulatory compliance.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "INTELLECTUAL PROPERTY DISPUTES",
@@ -219,7 +219,7 @@ export const mandatesData: MandateItem[] = [
     description:
       "We advise and represent clients before key Saudi authorities, including ZATCA and dispute resolution committees, leveraging deep institutional knowledge.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "GOVERNMENT & STRATEGIC ADVISORY",
@@ -263,7 +263,7 @@ export const mandatesData: MandateItem[] = [
       "IT & Telecom",
     ],
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "REAL ESTATE & FOREIGN OWNERSHIP",

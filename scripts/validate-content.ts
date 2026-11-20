@@ -16,7 +16,6 @@ const routes = new Set([
   "/", "/about", "/contact", "/expertise", "/team", "/insights",
   ...teamMembers.map(({ id }) => `/team/${id}`),
   ...publications.map(({ slug }) => `/insights/${slug}`),
-  ...mandatesData.map(({ slug }) => `/expertise/${slug}`),
   ...sectorsData.map(({ slug }) => `/sectors/${slug}`),
 ]);
 

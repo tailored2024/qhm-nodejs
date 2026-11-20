@@ -7,6 +7,7 @@ export const firmProfile = {
 
 export const clientLogos = [
   { src: "/assets/clientsLogo/Alfuttaim.png", alt: "Al-Futtaim" },
+  { src: "/assets/clientsLogo/edf.png", alt: "EDF" },
   { src: "/assets/clientsLogo/Pepsico-Emblem.png", alt: "PepsiCo" },
   { src: "/assets/clientsLogo/avia.jpg", alt: "Avia" },
   { src: "/assets/clientsLogo/bcc.png", alt: "BCC" },

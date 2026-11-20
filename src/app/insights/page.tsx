@@ -44,14 +44,14 @@ export default async function InsightsPage() {
               Discuss a Corporate Mandate
             </h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-white/58">
-              Engage QHM for practical guidance on regulatory, transactional, and dispute-related matters in Saudi Arabia.
+              Engage our team for practical guidance on regulatory, transactional, and dispute-related matters in Saudi Arabia.
             </p>
           </div>
           <Link
             href="/contact"
             className="group inline-flex min-h-12 items-center gap-4 border border-white bg-white px-6 text-sm font-medium uppercase text-gray-850 transition-colors hover:bg-gray-850 hover:text-white"
           >
-            Contact QHM
+            Contact Us
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

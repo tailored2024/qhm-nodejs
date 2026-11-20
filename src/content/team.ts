@@ -156,6 +156,7 @@ export const teamMembers: TeamMember[] = [
     id: "baraah-alsamman",
     name: "Baraah Alsamman",
     role: "Associate",
+    email: "bas@qhmlawfirm.com",
     image: `${headshotBase}/BaraahAlsamman.webp`,
     bio: [
       "Baraah Alsamman is a Saudi-qualified lawyer, advising local and international clients on corporate and commercial matters, foreign investment, and regulatory compliance in Saudi Arabia. She has experience in mergers and acquisitions, joint ventures, cross-border transactions, and corporate structuring, supporting clients in navigating legal and regulatory requirements throughout the lifecycle of their business activities.",
@@ -234,6 +235,7 @@ export const teamMembers: TeamMember[] = [
     id: "abdulaziz-alqana",
     name: "Abdulaziz Alqana",
     role: "Trainee Associate",
+    email: "aaa@qhmlawfirm.com",
     image: `${headshotBase}/Abdulaziz.webp`,
     bio: [
       "Abdulaziz is a legal trainee in the Firm\u2019s Corporate & Commercial department, supporting the team on corporate, commercial, contractual, and regulatory matters in the Kingdom of Saudi Arabia.",

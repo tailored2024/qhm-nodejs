@@ -4,7 +4,7 @@ import TeamPage from "@/components/team/TeamPage";
 
 export const metadata: Metadata = {
   title: "Our Team",
-  description: "Meet the QHM legal team, a multi-disciplinary group combining Saudi regulatory expertise with international commercial experience.",
+  description: "Meet our legal team, a multi-disciplinary group combining Saudi regulatory expertise with international commercial experience.",
   alternates: { canonical: "/team" },
 };
 

@@ -39,7 +39,7 @@ export default function Hero() {
             transition={{ delay: 0.95, duration: 0.8, ease }}
             className="mt-8 max-w-2xl text-base font-normal leading-8 text-white/88"
           >
-            Independent. Saudi-based. Internationally experienced. Qaisar Hamed Metawea Law Firm (QHM) is a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.
+            Independent. Saudi-based. Internationally experienced. We are a Saudi-based corporate law firm advising multinational companies, financial institutions, and regional headquarters on market entry, regulatory compliance, high-value transactions, tax disputes, and complex commercial matters across the Kingdom.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}

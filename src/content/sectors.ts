@@ -11,7 +11,7 @@ export const sectorsData: SectorItem[] = [
     intro:
       "Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "GOVERNMENT & STRATEGIC ADVISORY",
@@ -48,7 +48,7 @@ export const sectorsData: SectorItem[] = [
     intro:
       "Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "CORPORATE M&A (FLAGSHIP)",
@@ -85,7 +85,7 @@ export const sectorsData: SectorItem[] = [
     intro:
       "Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "CROSS-BORDER TRANSACTIONS",
@@ -115,7 +115,7 @@ export const sectorsData: SectorItem[] = [
     intro:
       "Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "REAL ESTATE & FOREIGN OWNERSHIP",
@@ -152,7 +152,7 @@ export const sectorsData: SectorItem[] = [
     intro:
       "Our practice areas are structured around the needs of multinational corporations operating in or entering Saudi Arabia. We focus on high-value corporate mandates requiring regulatory precision and strategic execution.",
     positioning:
-      "QHM advises multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
+      "We advise multinational corporations, financial institutions, government-related entities, and leading international law firms on complex regulatory, transactional, and tax matters in Saudi Arabia, delivering seamless local execution aligned with global standards.",
     mandates: [
       {
         category: "MARKET ENTRY & FINTECH REGULATORY",
